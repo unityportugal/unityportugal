@@ -14,12 +14,13 @@
     header {
       background-color: #000;
       color: white;
-      padding: 1rem;
+      padding: 2rem 1rem;
       text-align: center;
     }
     header img {
-      max-height: 60px;
-      margin-bottom: 0.5rem;
+      max-height: 80px;
+      margin-bottom: 1rem;
+      cursor: pointer;
     }
     nav {
       display: flex;
@@ -33,9 +34,27 @@
       text-decoration: none;
     }
     section {
+      display: none;
       padding: 2rem;
       max-width: 800px;
       margin: auto;
+    }
+    section:target {
+      display: block;
+    }
+    #inicio {
+      display: block;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    #inicio h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    #inicio p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
     }
     .produto {
       text-align: center;
@@ -44,6 +63,14 @@
       max-width: 100%;
       height: auto;
       border-radius: 10px;
+    }
+    .detalhes-produto {
+      margin-top: 1rem;
+      text-align: left;
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
     form {
       margin-top: 2rem;
@@ -88,9 +115,16 @@
 </head>
 <body>
   <header>
-    <img src="https://i.ibb.co/ksddPCTC/Logo-Site-01.png" alt="Logo-Site-01" border="0"></a>
+    <a href="#inicio">
+      <img src="logo_unity_portugal.png" alt="Unity Portugal logo">
+    </a>
     <p>Mais do que uma marca de roupa, um modo de vida</p>
   </header>
+
+  <section id="inicio">
+    <h1>Bem-vindo à Unity Portugal</h1>
+    <p>A marca que representa atitude, união e identidade. Explora a nossa visão e descobre as nossas coleções.</p>
+  </section>
 
   <nav>
     <a href="#colecoes">Coleções</a>
@@ -98,10 +132,17 @@
     <a href="#newsletter">Newsletter</a>
   </nav>
 
-   <section id="colecoes" class="produto">
+  <section id="colecoes" class="produto">
     <h2>Coleções</h2>
-    <img src="https://i.ibb.co/Y7S0hgZB/IMG-0448-2.jpg" alt="IMG-0448-2" border="0"></a>
-    <p>from the Worst fight to...the Best Kiss</p>
+    <img src="tshirt_unity_portugal.jpg" alt="Nova t-shirt Unity Portugal">
+    <p>Design exclusivo, limitado e com muito estilo. Disponível brevemente.</p>
+    <div class="detalhes-produto">
+      <h3>T-shirt Unity Portugal</h3>
+      <p><strong>Preço:</strong> 25€</p>
+      <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
+      <p><strong>Composição:</strong> 100% Algodão orgânico</p>
+      <p><strong>Características:</strong> Unissexo, corte regular, serigrafia de alta qualidade.</p>
+    </div>
   </section>
 
   <section id="sobre">
@@ -129,4 +170,4 @@
     </div>
   </footer>
 </body>
-</html> 
+</html>
