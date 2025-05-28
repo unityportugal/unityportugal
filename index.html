@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Unity Portugal</title>
   <style>
-    /* --- Reset e base --- */
+    /* Reset e base */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
@@ -20,7 +20,7 @@
       color: #ff5a5f;
     }
 
-    /* --- Header --- */
+    /* Header */
     header {
       background-color: #000;
       padding: 1rem;
@@ -31,7 +31,7 @@
       cursor: pointer;
     }
 
-    /* --- Navegação --- */
+    /* Navegação */
     nav {
       display: flex;
       justify-content: center;
@@ -48,7 +48,7 @@
       color: #ff5a5f;
     }
 
-    /* --- Hero imagem e secções --- */
+    /* Hero imagem e secções */
     .hero-image {
       width: 100%;
       height: 400px;
@@ -84,7 +84,7 @@
       to {opacity: 1; transform: translateY(0);}
     }
 
-    /* --- Início --- */
+    /* Início */
     #inicio h1 {
       font-size: 2.5rem;
       margin: 2rem 0;
@@ -95,7 +95,7 @@
       margin: 0 auto 3rem;
     }
 
-    /* --- Grid produtos --- */
+    /* Grid produtos */
     .produtos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -136,7 +136,7 @@
       text-decoration: underline;
     }
 
-    /* --- Detalhes do produto --- */
+    /* Detalhes do produto */
     .produto-detalhe-container {
       background: white;
       max-width: 900px;
@@ -214,7 +214,7 @@
       box-shadow: 0 8px 20px rgba(224, 78, 83, 0.6);
     }
 
-    /* --- Sobre Nós --- */
+    /* Sobre Nós */
     #sobre {
       max-width: 700px;
       margin: 2rem auto;
@@ -233,7 +233,7 @@
       color: #222;
     }
 
-    /* --- Newsletter --- */
+    /* Newsletter */
     #newsletter {
       max-width: 700px;
       margin: 2rem auto 4rem;
@@ -279,7 +279,7 @@
       background-color: #333;
     }
 
-    /* --- Footer --- */
+    /* Footer */
     footer {
       text-align: center;
       padding: 1rem;
@@ -304,7 +304,7 @@
       filter: grayscale(0%);
     }
 
-    /* --- Responsivo --- */
+    /* Responsivo */
     @media (max-width: 720px) {
       nav {
         flex-direction: column;
@@ -365,7 +365,117 @@
     </div>
   </section>
 
+  <!-- Produto 1 -->
   <section id="produto1">
     <div class="produto-detalhe-container">
       <div class="produto-imagem">
-        <img src="best_kiss.jpg" alt
+        <img src="best_kiss.jpg" alt="Best Kiss Collection" />
+      </div>
+      <div class="produto-info">
+        <h2>Best Kiss Collection</h2>
+        <p><strong>Preço:</strong> 49,99€</p>
+        <p>Uma coleção que simboliza a paixão e o estilo único. Camisetas com design exclusivo, feitas com algodão orgânico.</p>
+        <div class="tamanhos">
+          <p><strong>Tamanho:</strong></p>
+          <label><input type="radio" name="tamanho1" value="S" /> S</label>
+          <label><input type="radio" name="tamanho1" value="M" /> M</label>
+          <label><input type="radio" name="tamanho1" value="L" /> L</label>
+          <label><input type="radio" name="tamanho1" value="XL" /> XL</label>
+        </div>
+        <button class="btn-adicionar" onclick="adicionarAoCarrinho('Best Kiss Collection')">Adicionar ao Carrinho</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Produto 2 -->
+  <section id="produto2">
+    <div class="produto-detalhe-container">
+      <div class="produto-imagem">
+        <img src="cupid.jpg" alt="Cupid Collection" />
+      </div>
+      <div class="produto-info">
+        <h2>Cupid Collection</h2>
+        <p><strong>Preço:</strong> 39,99€</p>
+        <p>Expressa o amor e a união com um design delicado e cores vibrantes, ideal para todas as ocasiões.</p>
+        <div class="tamanhos">
+          <p><strong>Tamanho:</strong></p>
+          <label><input type="radio" name="tamanho2" value="S" /> S</label>
+          <label><input type="radio" name="tamanho2" value="M" /> M</label>
+          <label><input type="radio" name="tamanho2" value="L" /> L</label>
+          <label><input type="radio" name="tamanho2" value="XL" /> XL</label>
+        </div>
+        <button class="btn-adicionar" onclick="adicionarAoCarrinho('Cupid Collection')">Adicionar ao Carrinho</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Produto 3 -->
+  <section id="produto3">
+    <div class="produto-detalhe-container">
+      <div class="produto-imagem">
+        <img src="10years.jpg" alt="10 Years Exclusive" />
+      </div>
+      <div class="produto-info">
+        <h2>10 Years Exclusive</h2>
+        <p><strong>Preço:</strong> 59,99€</p>
+        <p>Edição especial para celebrar 10 anos da Unity Portugal. Materiais premium e design sofisticado.</p>
+        <div class="tamanhos">
+          <p><strong>Tamanho:</strong></p>
+          <label><input type="radio" name="tamanho3" value="S" /> S</label>
+          <label><input type="radio" name="tamanho3" value="M" /> M</label>
+          <label><input type="radio" name="tamanho3" value="L" /> L</label>
+          <label><input type="radio" name="tamanho3" value="XL" /> XL</label>
+        </div>
+        <button class="btn-adicionar" onclick="adicionarAoCarrinho('10 Years Exclusive')">Adicionar ao Carrinho</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <h2>Sobre Nós</h2>
+    <p>
+      A Unity Portugal é uma marca criada para quem valoriza identidade, atitude e união.
+      Desde o nosso lançamento, temos focado em oferecer produtos de alta qualidade com design exclusivo que representem a essência do nosso público.
+      Acreditamos que a roupa é mais do que um estilo — é uma forma de expressão e ligação.
+    </p>
+  </section>
+
+  <section id="newsletter">
+    <h2>Subscreve a nossa Newsletter</h2>
+    <form onsubmit="return subscreverNewsletter(event)">
+      <input type="email" id="emailNewsletter" placeholder="O teu email" required />
+      <button type="submit">Subscrever</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Unity Portugal. Todos os direitos reservados.</p>
+    <div class="social-icons">
+      <a href="https://instagram.com/unityportugal" target="_blank" rel="noopener noreferrer">
+        <img src="instagram_icon.svg" alt="Instagram" />
+      </a>
+      <a href="https://facebook.com/unityportugal" target="_blank" rel="noopener noreferrer">
+        <img src="facebook_icon.svg" alt="Facebook" />
+      </a>
+      <a href="https://twitter.com/unityportugal" target="_blank" rel="noopener noreferrer">
+        <img src="twitter_icon.svg" alt="Twitter" />
+      </a>
+    </div>
+  </footer>
+
+  <script>
+    function adicionarAoCarrinho(produto) {
+      alert(produto + " foi adicionado ao carrinho!");
+    }
+
+    function subscreverNewsletter(event) {
+      event.preventDefault();
+      const email = document.getElementById('emailNewsletter').value;
+      alert("Obrigado por subscrever, " + email + "!");
+      document.getElementById('emailNewsletter').value = '';
+      return false;
+    }
+  </script>
+
+</body>
+</html>
