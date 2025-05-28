@@ -1,302 +1,204 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unity Portugal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unity Portugal - Coleções</title>
   <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      background-color: #f5f5f5;
+      background-color: #f4f4f4;
       color: #333;
+      line-height: 1.6;
     }
+
     header {
-      background-color: #000;
-      color: white;
-      padding: 1rem;
+      background: #000;
+      padding: 1rem 2rem;
       text-align: center;
     }
+
     header img {
       max-height: 60px;
       cursor: pointer;
     }
+
     nav {
+      background: #111;
       display: flex;
       justify-content: center;
       gap: 2rem;
-      padding: 1rem;
-      background-color: #111;
+      padding: 1rem 0;
     }
+
     nav a {
-      color: white;
+      color: #fff;
       text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: color 0.3s ease;
     }
-    .hero-image {
-      width: 100%;
-      height: 400px;
-      background-image: url('nova_colecao.jpg');
-      background-size: cover;
-      background-position: center;
-      animation: fadeIn 2s ease;
+
+    nav a:hover {
+      color: #ff6f61;
     }
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+
+    main {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
     }
-    section {
-      display: none;
-      padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
-      animation: fadeIn 1s ease;
-    }
-    section:target {
-      display: block;
-    }
-    #inicio {
-      display: block;
+
+    h1, h2 {
       text-align: center;
-      padding: 0;
+      margin-bottom: 2rem;
+      color: #222;
     }
-    #inicio .hero-image {
-      display: block;
-    }
-    #colecoes .hero-image,
-    #sobre .hero-image {
-      display: none;
-    }
-    #inicio h1 {
-      font-size: 3rem;
-      margin: 2rem 0;
-      font-weight: 700;
-    }
-    #inicio p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-    .produtos-grid {
+
+    .produtos-grelha {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      margin-top: 2rem;
     }
+
     .produto-card {
-      background-color: white;
-      border-radius: 16px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
       overflow: hidden;
-      text-align: center;
-      transition: transform 0.3s ease;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
     }
+
     .produto-card:hover {
-      transform: scale(1.03);
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.2);
     }
+
     .produto-card img {
       width: 100%;
-      height: auto;
+      height: 350px;
+      object-fit: cover;
+      border-bottom: 1px solid #eee;
     }
-    .produto-card h3 {
-      margin: 1rem 0 0.5rem;
-      font-size: 1.2rem;
+
+    .produto-info {
+      padding: 1rem 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
-    .produto-card p {
-      font-weight: bold;
-      color: #000;
-      margin-bottom: 1rem;
-    }
-    .produto-card a {
-      display: inline-block;
-      margin-bottom: 1rem;
-      color: black;
-      text-decoration: underline;
-      font-weight: 500;
-    }
-    .detalhes-produto {
-      margin-top: 1rem;
-      text-align: left;
-      background-color: #fff;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    form {
-      margin-top: 2rem;
-      text-align: center;
-    }
-    input[type="email"] {
-      padding: 0.5rem;
-      width: 60%;
-      max-width: 300px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    button {
-      padding: 0.5rem 1rem;
-      margin-left: 0.5rem;
-      background-color: black;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background-color: #333;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #000;
-      color: white;
-    }
-    .social-icons {
-      margin-top: 1rem;
-    }
-    .social-icons a {
-      margin: 0 10px;
-      display: inline-block;
-    }
-    .social-icons img {
-      width: 20px;
-      height: 20px;
-      filter: grayscale(100%);
-      transition: filter 0.3s;
-    }
-    .social-icons img:hover {
-      filter: grayscale(0%);
-    }
-    .galeria-clientes {
-      margin-top: 3rem;
-      text-align: center;
-    }
-    .galeria-clientes h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
+
+    .produto-info h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
       color: #111;
     }
-    .galeria-grid {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 2rem;
+
+    .produto-info p {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #555;
+      margin-bottom: 1rem;
     }
-    .foto-cliente {
-      width: 200px;
-      flex-shrink: 0;
-    }
-    .foto-cliente img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .foto-cliente img:hover {
-      transform: scale(1.05);
-    }
-    .foto-cliente p {
-      margin-top: 0.5rem;
+
+    .produto-info span {
       font-size: 0.9rem;
-      color: #666;
+      color: #777;
+    }
+
+    footer {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: 4rem;
+    }
+
+    footer a {
+      color: #ff6f61;
+      text-decoration: none;
+      margin: 0 0.5rem;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .produto-card img {
+        height: 250px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
-    <a href="#inicio"><img src="https://i.ibb.co/ksddPCTC/Logo-Site-01.png" alt="Unity Portugal"></a>
+    <a href="#inicio">
+      <img src="https://i.ibb.co/ksddPCTC/Logo-Site-01.png" alt="Unity Portugal Logo" />
+    </a>
   </header>
+
   <nav>
     <a href="#inicio">Início</a>
     <a href="#colecoes">Coleções</a>
     <a href="#sobre">Sobre Nós</a>
-    <a href="#newsletter">Newsletter</a>
+    <a href="#contactos">Contactos</a>
   </nav>
 
-  <section id="inicio">
-    <div class="hero-image"></div>
-    <h1>Bem-vindo à Unity Portugal</h1>
-    <p>A marca que representa atitude, união e identidade. Explora a nossa visão e descobre as nossas coleções.</p>
-    <div class="galeria-clientes">
-      <h2>Clientes com estilo Unity</h2>
-      <div class="galeria-grid">
-        <div class="foto-cliente">
-          <img src="cliente1.jpg" alt="Cliente 1">
-          <p>@cliente1</p>
+  <main>
+    <h1>Coleções Unity Portugal</h1>
+    <section id="colecoes" class="produtos-grelha">
+      <article class="produto-card" onclick="window.location.href='produto1.html'">
+        <img src="https://via.placeholder.com/350x450?text=Best+Kiss+Collection" alt="Best Kiss Collection">
+        <div class="produto-info">
+          <h3>Best Kiss Collection</h3>
+          <p>29,99€</p>
+          <span>Tamanhos: S, M, L, XL</span>
         </div>
-        <div class="foto-cliente">
-          <img src="cliente2.jpg" alt="Cliente 2">
-          <p>@cliente2</p>
+      </article>
+
+      <article class="produto-card" onclick="window.location.href='produto2.html'">
+        <img src="https://via.placeholder.com/350x450?text=Cupid+Collection" alt="Cupid Collection">
+        <div class="produto-info">
+          <h3>Cupid Collection</h3>
+          <p>29,99€</p>
+          <span>Tamanhos: S, M, L, XL</span>
         </div>
-        <div class="foto-cliente">
-          <img src="cliente3.jpg" alt="Cliente 3">
-          <p>@cliente3</p>
+      </article>
+
+      <article class="produto-card" onclick="window.location.href='produto3.html'">
+        <img src="https://via.placeholder.com/350x450?text=10+Years+Exclusive" alt="10 Years Exclusive">
+        <div class="produto-info">
+          <h3>10 Years Exclusive</h3>
+          <p>34,99€</p>
+          <span>Tamanhos: M, L, XL</span>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="colecoes">
-    <h2 style="text-align: center;">Coleções</h2>
-    <div class="produtos-grid">
-      <div class="produto-card">
-        <img src="bestkiss.jpg" alt="Best Kiss Collection">
-        <h3>Best Kiss Collection</h3>
-        <p>29,99€</p>
-        <a href="#detalhe1">Ver Detalhes</a>
-      </div>
-      <div class="produto-card">
-        <img src="cupid.jpg" alt="Cupid Collection">
-        <h3>Cupid Collection</h3>
-        <p>29,99€</p>
-        <a href="#detalhe2">Ver Detalhes</a>
-      </div>
-      <div class="produto-card">
-        <img src="10years.jpg" alt="10 Years Exclusive">
-        <h3>10 Years Exclusive</h3>
-        <p>34,99€</p>
-        <a href="#detalhe3">Ver Detalhes</a>
-      </div>
-    </div>
-    <div id="detalhe1" class="detalhes-produto">
-      <h3>Best Kiss Collection</h3>
-      <p>Oversized fit, 100% algodão, impressão de alta qualidade.</p>
-      <p><strong>Tamanhos:</strong> S, M, L, XL</p>
-      <p><strong>Composição:</strong> 100% Algodão</p>
-    </div>
-    <div id="detalhe2" class="detalhes-produto">
-      <h3>Cupid Collection</h3>
-      <p>Estilo moderno com grafismo arrojado e toque suave.</p>
-      <p><strong>Tamanhos:</strong> S, M, L, XL</p>
-      <p><strong>Composição:</strong> 100% Algodão</p>
-    </div>
-    <div id="detalhe3" class="detalhes-produto">
-      <h3>10 Years Exclusive</h3>
-      <p>Edição especial com detalhes bordados e etiqueta comemorativa.</p>
-      <p><strong>Tamanhos:</strong> M, L, XL</p>
-      <p><strong>Composição:</strong> Algodão & Poliéster</p>
-    </div>
-  </section>
-
-  <section id="sobre">
-    <!-- conteúdo da secção sobre -->
-  </section>
-
-  <section id="newsletter">
-    <!-- conteúdo da secção newsletter -->
-  </section>
+      </article>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Unity Portugal. Todos os direitos reservados.</p>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/unityportugal" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
-      </a>
-      <a href="https://www.tiktok.com/@unityportugal?lang=pt" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
-      </a>
-    </div>
+    <p>&copy; 2025 Unity Portugal - Todos os direitos reservados.</p>
+    <p>
+      <a href="https://www.instagram.com/unityportugal" target="_blank" rel="noopener">Instagram</a> |
+      <a href="https://www.tiktok.com/@unityportugal" target="_blank" rel="noopener">TikTok</a>
+    </p>
   </footer>
 </body>
 </html>
