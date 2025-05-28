@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unity Portugal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', sans-serif;
       margin: 0;
       background-color: #f5f5f5;
       color: #333;
@@ -38,12 +39,18 @@
       background-image: url('nova_colecao.jpg');
       background-size: cover;
       background-position: center;
+      animation: fadeIn 2s ease;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
     section {
       display: none;
       padding: 2rem;
       max-width: 1000px;
       margin: auto;
+      animation: fadeIn 1s ease;
     }
     section:target {
       display: block;
@@ -61,8 +68,9 @@
       display: none;
     }
     #inicio h1 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       margin: 2rem 0;
+      font-weight: 700;
     }
     #inicio p {
       font-size: 1.2rem;
@@ -77,10 +85,14 @@
     }
     .produto-card {
       background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
       overflow: hidden;
       text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .produto-card:hover {
+      transform: scale(1.03);
     }
     .produto-card img {
       width: 100%;
@@ -88,12 +100,14 @@
     }
     .produto-card h3 {
       margin: 1rem 0 0.5rem;
+      font-size: 1.2rem;
     }
     .produto-card a {
       display: inline-block;
       margin-bottom: 1rem;
       color: black;
       text-decoration: underline;
+      font-weight: 500;
     }
     .detalhes-produto {
       margin-top: 1rem;
@@ -111,6 +125,8 @@
       padding: 0.5rem;
       width: 60%;
       max-width: 300px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
     }
     button {
       padding: 0.5rem 1rem;
@@ -118,7 +134,12 @@
       background-color: black;
       color: white;
       border: none;
+      border-radius: 6px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #333;
     }
     footer {
       text-align: center;
@@ -179,11 +200,8 @@
 </head>
 <body>
   <header>
-    <a href="#inicio">
-      <img src="logo_unity_portugal.png" alt="Unity Portugal logo">
-    </a>
+    <a href="#inicio"><img src="logo_unity_portugal.png" alt="Unity Portugal"></a>
   </header>
-
   <nav>
     <a href="#inicio">Início</a>
     <a href="#colecoes">Coleções</a>
@@ -196,89 +214,34 @@
     <h1>Bem-vindo à Unity Portugal</h1>
     <p>A marca que representa atitude, união e identidade. Explora a nossa visão e descobre as nossas coleções.</p>
     <div class="galeria-clientes">
-      <h2>Fotos dos nossos clientes</h2>
+      <h2>Clientes com estilo Unity</h2>
       <div class="galeria-grid">
         <div class="foto-cliente">
-          <img src="cliente1.jpg" alt="Cliente 1" />
-          <p>@maria.style</p>
+          <img src="cliente1.jpg" alt="Cliente 1">
+          <p>@cliente1</p>
         </div>
         <div class="foto-cliente">
-          <img src="cliente2.jpg" alt="Cliente 2" />
-          <p>@joaofitwear</p>
+          <img src="cliente2.jpg" alt="Cliente 2">
+          <p>@cliente2</p>
         </div>
         <div class="foto-cliente">
-          <img src="cliente3.jpg" alt="Cliente 3" />
-          <p>@ineslovesunity</p>
+          <img src="cliente3.jpg" alt="Cliente 3">
+          <p>@cliente3</p>
         </div>
       </div>
     </div>
   </section>
 
   <section id="colecoes">
-    <h2 style="text-align: center;">Coleções</h2>
-    <div class="produtos-grid">
-      <div class="produto-card">
-        <img src="best_kiss.jpg" alt="Best Kiss Collection">
-        <h3>Best Kiss Collection</h3>
-        <a href="#produto1">Ver mais</a>
-      </div>
-      <div class="produto-card">
-        <img src="cupid.jpg" alt="Cupid Collection">
-        <h3>Cupid Collection</h3>
-        <a href="#produto2">Ver mais</a>
-      </div>
-      <div class="produto-card">
-        <img src="10years.jpg" alt="10 Years Exclusive">
-        <h3>10 Years Exclusive</h3>
-        <a href="#produto3">Ver mais</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="produto1">
-    <h2>Best Kiss Collection</h2>
-    <img src="best_kiss.jpg" alt="Best Kiss Collection">
-    <div class="detalhes-produto">
-      <p><strong>Preço:</strong> 25€</p>
-      <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
-      <p><strong>Composição:</strong> 100% Algodão orgânico</p>
-      <p><strong>Características:</strong> Unissexo, corte regular, serigrafia de alta qualidade.</p>
-    </div>
-  </section>
-
-  <section id="produto2">
-    <h2>Cupid Collection</h2>
-    <img src="cupid.jpg" alt="Cupid Collection">
-    <div class="detalhes-produto">
-      <p><strong>Preço:</strong> 25€</p>
-      <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
-      <p><strong>Composição:</strong> 100% Algodão orgânico</p>
-      <p><strong>Características:</strong> Unissexo, corte regular, serigrafia de alta qualidade.</p>
-    </div>
-  </section>
-
-  <section id="produto3">
-    <h2>10 Years Exclusive</h2>
-    <img src="10years.jpg" alt="10 Years Exclusive">
-    <div class="detalhes-produto">
-      <p><strong>Preço:</strong> 25€</p>
-      <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
-      <p><strong>Composição:</strong> 100% Algodão orgânico</p>
-      <p><strong>Características:</strong> Unissexo, corte regular, serigrafia de alta qualidade.</p>
-    </div>
+    <!-- conteúdo da secção coleções -->
   </section>
 
   <section id="sobre">
-    <h2>Sobre Nós</h2>
-    <p>A Unity Portugal é uma marca de roupa criada para representar união, identidade e atitude. Inspirados pela cultura de rua portuguesa.</p>
+    <!-- conteúdo da secção sobre -->
   </section>
 
   <section id="newsletter">
-    <h2>Fica a par das novidades</h2>
-    <form>
-      <input type="email" placeholder="O teu email" required>
-      <button type="submit">Subscrever</button>
-    </form>
+    <!-- conteúdo da secção newsletter -->
   </section>
 
   <footer>
