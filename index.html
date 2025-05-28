@@ -11,11 +11,6 @@
       background-color: #f5f5f5;
       color: #333;
     }
-    /* Removido .landing */
-
-    #main-content {
-      display: block; /* Antes estava none */
-    }
     header {
       background-color: #000;
       color: white;
@@ -39,16 +34,11 @@
       text-decoration: none;
     }
     section {
-      display: none;
       padding: 2rem;
       max-width: 800px;
       margin: auto;
     }
-    section:target {
-      display: block;
-    }
     #inicio {
-      display: block;
       text-align: center;
       padding: 4rem 2rem;
     }
@@ -61,21 +51,51 @@
       max-width: 600px;
       margin: 0 auto;
     }
-    .produto {
-      text-align: center;
+    .grade-produtos {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
     }
-    .produto img {
+    .produto-card {
+      border: 1px solid #ccc;
+      padding: 1rem;
+      width: 200px;
+      cursor: pointer;
+      border-radius: 8px;
+      text-align: center;
+      background-color: white;
+      transition: box-shadow 0.3s;
+    }
+    .produto-card:hover {
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .produto-card img {
       max-width: 100%;
-      height: auto;
-      border-radius: 10px;
+      border-radius: 8px;
     }
     .detalhes-produto {
-      margin-top: 1rem;
-      text-align: left;
-      background-color: #fff;
+      max-width: 600px;
+      margin: 2rem auto;
+      background-color: white;
       padding: 1rem;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      text-align: center;
+      display: none;
+    }
+    .detalhes-produto img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+    .detalhes-produto button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
     }
     form {
       margin-top: 2rem;
@@ -93,6 +113,7 @@
       color: white;
       border: none;
       cursor: pointer;
+      border-radius: 5px;
     }
     footer {
       text-align: center;
@@ -117,65 +138,107 @@
       filter: grayscale(0%);
     }
   </style>
+  <script>
+    function mostrarDetalhes(id) {
+      document.querySelector('.grade-produtos').style.display = 'none';
+      document.querySelectorAll('.detalhes-produto').forEach(div => div.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function fecharDetalhes(id) {
+      document.getElementById(id).style.display = 'none';
+      document.querySelector('.grade-produtos').style.display = 'flex';
+    }
+  </script>
 </head>
 <body>
-  <div id="main-content">
-    <header>
-      <a href="#inicio">
-        <img src="logo_unity_portugal.png" alt="Unity Portugal logo" />
-      </a>
-      <p>Mais do que uma marca de roupa, um modo de vida</p>
-    </header>
+  <header>
+    <a href="#inicio">
+      <img src="logo_unity_portugal.png" alt="Unity Portugal logo" />
+    </a>
+    <p>Mais do que uma marca de roupa, um modo de vida</p>
+  </header>
 
-    <nav>
-      <a href="#colecoes">Coleções</a>
-      <a href="#sobre">Sobre Nós</a>
-      <a href="#newsletter">Newsletter</a>
-    </nav>
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#colecoes">Coleções</a>
+    <a href="#sobre">Sobre Nós</a>
+    <a href="#newsletter">Newsletter</a>
+  </nav>
 
-    <section id="inicio">
-      <h1>Bem-vindo à Unity Portugal</h1>
-      <p>A marca que representa atitude, união e identidade. Explora a nossa visão e descobre as nossas coleções.</p>
-    </section>
+  <section id="inicio">
+    <h1>Bem-vindo à Unity Portugal</h1>
+    <p>A marca que representa atitude, união e identidade. Explora a nossa visão e descobre as nossas coleções.</p>
+  </section>
 
-    <section id="colecoes" class="produto">
-      <h2>Coleções</h2>
-      <img src="tshirt_unity_portugal.jpg" alt="Nova t-shirt Unity Portugal" />
-      <p>Design exclusivo, limitado e com muito estilo. Disponível brevemente.</p>
-      <div class="detalhes-produto">
+  <section id="colecoes" class="produto">
+    <h2>Coleções</h2>
+    <div class="grade-produtos">
+      <div class="produto-card" onclick="mostrarDetalhes('produto1')">
+        <img src="tshirt1.jpg" alt="T-shirt Unity Portugal" />
         <h3>T-shirt Unity Portugal</h3>
-        <p><strong>Preço:</strong> 25€</p>
-        <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
-        <p><strong>Composição:</strong> 100% Algodão orgânico</p>
-        <p><strong>Características:</strong> Unissexo, corte regular, serigrafia de alta qualidade.</p>
       </div>
-    </section>
-
-    <section id="sobre">
-      <h2>Sobre Nós</h2>
-      <p>A Unity Portugal é uma marca de roupa criada para representar união, identidade e atitude. Inspirados pela cultura de rua portuguesa.</p>
-    </section>
-
-    <section id="newsletter">
-      <h2>Fica a par das novidades</h2>
-      <form>
-        <input type="email" placeholder="O teu email" required />
-        <button type="submit">Subscrever</button>
-      </form>
-    </section>
-
-    <footer>
-      <p>&copy; 2025 Unity Portugal. Todos os direitos reservados.</p>
-      <div class="social-icons">
-        <a href="https://www.instagram.com/unityportugal" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
-        </a>
-        <a href="https://www.tiktok.com/@unityportugal?lang=pt" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" />
-        </a>
+      <div class="produto-card" onclick="mostrarDetalhes('produto2')">
+        <img src="tshirt2.jpg" alt="T-shirt Lisboa" />
+        <h3>T-shirt Lisboa</h3>
       </div>
-    </footer>
-  </div>
+      <div class="produto-card" onclick="mostrarDetalhes('produto3')">
+        <img src="tshirt3.jpg" alt="T-shirt Porto" />
+        <h3>T-shirt Porto</h3>
+      </div>
+    </div>
+
+    <div id="produto1" class="detalhes-produto">
+      <h3>T-shirt Unity Portugal</h3>
+      <img src="tshirt1.jpg" alt="T-shirt Unity Portugal" />
+      <p><strong>Preço:</strong> 25€</p>
+      <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
+      <p><strong>Composição:</strong> 100% Algodão orgânico</p>
+      <button onclick="fecharDetalhes('produto1')">Fechar</button>
+    </div>
+
+    <div id="produto2" class="detalhes-produto">
+      <h3>T-shirt Lisboa</h3>
+      <img src="tshirt2.jpg" alt="T-shirt Lisboa" />
+      <p><strong>Preço:</strong> 30€</p>
+      <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
+      <p><strong>Composição:</strong> 100% Algodão orgânico</p>
+      <button onclick="fecharDetalhes('produto2')">Fechar</button>
+    </div>
+
+    <div id="produto3" class="detalhes-produto">
+      <h3>T-shirt Porto</h3>
+      <img src="tshirt3.jpg" alt="T-shirt Porto" />
+      <p><strong>Preço:</strong> 28€</p>
+      <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
+      <p><strong>Composição:</strong> 100% Algodão orgânico</p>
+      <button onclick="fecharDetalhes('produto3')">Fechar</button>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <h2>Sobre Nós</h2>
+    <p>A Unity Portugal é uma marca de roupa criada para representar união, identidade e atitude. Inspirados pela cultura de rua portuguesa.</p>
+  </section>
+
+  <section id="newsletter">
+    <h2>Fica a par das novidades</h2>
+    <form>
+      <input type="email" placeholder="O teu email" required />
+      <button type="submit">Subscrever</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Unity Portugal. Todos os direitos reservados.</p>
+    <div class="social-icons">
+      <a href="https://www.instagram.com/unityportugal" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+      </a>
+      <a href="https://www.tiktok.com/@unityportugal?lang=pt" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" />
+      </a>
+    </div>
+  </footer>
 </body>
 </html>
-
