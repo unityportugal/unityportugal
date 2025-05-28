@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Unity Portugal</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       background-color: #f5f5f5;
       color: #333;
     }
     header {
       background-color: #000;
-      color: white;
       padding: 1rem;
       text-align: center;
     }
@@ -31,6 +30,11 @@
     nav a {
       color: white;
       text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #ff5a5f;
     }
     .hero-image {
       width: 100%;
@@ -47,6 +51,7 @@
     }
     section:target {
       display: block;
+      animation: fadeIn 0.6s ease forwards;
     }
     #inicio {
       display: block;
@@ -67,7 +72,7 @@
     #inicio p {
       font-size: 1.2rem;
       max-width: 600px;
-      margin: 0 auto;
+      margin: 0 auto 3rem;
     }
     .produtos-grid {
       display: grid;
@@ -78,53 +83,124 @@
     .produto-card {
       background-color: white;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
       overflow: hidden;
       text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .produto-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
     }
     .produto-card img {
       width: 100%;
       height: auto;
+      display: block;
     }
     .produto-card h3 {
       margin: 1rem 0 0.5rem;
+      font-weight: 700;
+      color: #222;
     }
     .produto-card a {
       display: inline-block;
       margin-bottom: 1rem;
-      color: black;
+      color: #ff5a5f;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .produto-card a:hover {
       text-decoration: underline;
     }
-    .detalhes-produto {
-      margin-top: 1rem;
-      text-align: left;
-      background-color: #fff;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    /* Página produto detalhado */
+    .produto-detalhe-container {
+      background: white;
+      max-width: 900px;
+      margin: 2rem auto;
+      display: flex;
+      flex-wrap: wrap;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
     }
-    form {
-      margin-top: 2rem;
-      text-align: center;
+    .produto-imagem {
+      flex: 1 1 400px;
+      min-width: 320px;
+      background: #fafafa;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
     }
-    input[type="email"] {
-      padding: 0.5rem;
-      width: 60%;
-      max-width: 300px;
+    .produto-imagem img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
-    button {
-      padding: 0.5rem 1rem;
-      margin-left: 0.5rem;
-      background-color: black;
-      color: white;
-      border: none;
+    .produto-info {
+      flex: 1 1 400px;
+      padding: 2rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .produto-info h2 {
+      margin-bottom: 1rem;
+      font-size: 2.2rem;
+      color: #111;
+      font-weight: 700;
+    }
+    .produto-info p {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      color: #555;
+    }
+    .produto-info strong {
+      color: #222;
+    }
+    .tamanhos {
+      margin: 1.5rem 0;
+    }
+    .tamanhos label {
+      margin-right: 1rem;
       cursor: pointer;
+      font-weight: 600;
+      color: #444;
+    }
+    .tamanhos input[type="radio"] {
+      margin-right: 0.3rem;
+      cursor: pointer;
+    }
+    .btn-adicionar {
+      background-color: #ff5a5f;
+      border: none;
+      padding: 0.9rem 2.5rem;
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 2rem;
+      transition: background-color 0.3s ease;
+      align-self: start;
+      box-shadow: 0 6px 15px rgba(255, 90, 95, 0.4);
+    }
+    .btn-adicionar:hover {
+      background-color: #e04e53;
+      box-shadow: 0 8px 20px rgba(224, 78, 83, 0.6);
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(10px);}
+      to {opacity: 1; transform: translateY(0);}
     }
     footer {
       text-align: center;
       padding: 1rem;
       background-color: #000;
       color: white;
+      margin-top: 3rem;
     }
     .social-icons {
       margin-top: 1rem;
@@ -142,12 +218,61 @@
     .social-icons img:hover {
       filter: grayscale(0%);
     }
+    /* Form newsletter */
+    form {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    input[type="email"] {
+      padding: 0.5rem;
+      width: 60%;
+      max-width: 300px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    input[type="email"]:focus {
+      outline: none;
+      border-color: #ff5a5f;
+    }
+    button[type="submit"] {
+      padding: 0.5rem 1.5rem;
+      margin-left: 0.5rem;
+      background-color: #000;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    button[type="submit"]:hover {
+      background-color: #333;
+    }
+    /* Responsivo */
+    @media (max-width: 720px) {
+      .produto-detalhe-container {
+        flex-direction: column;
+        padding: 1rem;
+      }
+      .produto-info {
+        padding: 1.5rem 1rem;
+      }
+      .produto-imagem {
+        padding: 1rem;
+      }
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <a href="#inicio">
-      <img src="logo_unity_portugal.png" alt="Unity Portugal logo">
+      <img src="logo_unity_portugal.png" alt="Unity Portugal logo" />
     </a>
   </header>
 
@@ -162,86 +287,5 @@
     <div class="hero-image"></div>
     <h1>Bem-vindo à Unity Portugal</h1>
     <p>A marca que representa atitude, união e identidade. Explora a nossa visão e descobre as nossas coleções.</p>
-  </section>
-
-  <section id="colecoes">
-    <h2 style="text-align: center;">Coleções</h2>
-    <div class="produtos-grid">
-      <div class="produto-card">
-        <img src="best_kiss.jpg" alt="Best Kiss Collection">
-        <h3>Best Kiss Collection</h3>
-        <a href="#produto1">Ver mais</a>
-      </div>
-      <div class="produto-card">
-        <img src="cupid.jpg" alt="Cupid Collection">
-        <h3>Cupid Collection</h3>
-        <a href="#produto2">Ver mais</a>
-      </div>
-      <div class="produto-card">
-        <img src="10years.jpg" alt="10 Years Exclusive">
-        <h3>10 Years Exclusive</h3>
-        <a href="#produto3">Ver mais</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="produto1">
-    <h2>Best Kiss Collection</h2>
-    <img src="best_kiss.jpg" alt="Best Kiss Collection">
-    <div class="detalhes-produto">
-      <p><strong>Preço:</strong> 25€</p>
-      <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
-      <p><strong>Composição:</strong> 100% Algodão orgânico</p>
-      <p><strong>Características:</strong> Unissexo, corte regular, serigrafia de alta qualidade.</p>
-    </div>
-  </section>
-
-  <section id="produto2">
-    <h2>Cupid Collection</h2>
-    <img src="cupid.jpg" alt="Cupid Collection">
-    <div class="detalhes-produto">
-      <p><strong>Preço:</strong> 25€</p>
-      <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
-      <p><strong>Composição:</strong> 100% Algodão orgânico</p>
-      <p><strong>Características:</strong> Unissexo, corte regular, serigrafia de alta qualidade.</p>
-    </div>
-  </section>
-
-  <section id="produto3">
-    <h2>10 Years Exclusive</h2>
-    <img src="10years.jpg" alt="10 Years Exclusive">
-    <div class="detalhes-produto">
-      <p><strong>Preço:</strong> 25€</p>
-      <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
-      <p><strong>Composição:</strong> 100% Algodão orgânico</p>
-      <p><strong>Características:</strong> Unissexo, corte regular, serigrafia de alta qualidade.</p>
-    </div>
-  </section>
-
-  <section id="sobre">
-    <h2>Sobre Nós</h2>
-    <p>A Unity Portugal é uma marca de roupa criada para representar união, identidade e atitude. Inspirados pela cultura de rua portuguesa.</p>
-  </section>
-
-  <section id="newsletter">
-    <h2>Fica a par das novidades</h2>
-    <form>
-      <input type="email" placeholder="O teu email" required>
-      <button type="submit">Subscrever</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Unity Portugal. Todos os direitos reservados.</p>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/unityportugal" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
-      </a>
-      <a href="https://www.tiktok.com/@unityportugal?lang=pt" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
-      </a>
-    </div>
-  </footer>
-</body>
-</html>
+  </
 
