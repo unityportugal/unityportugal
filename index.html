@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unity Portugal</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
       font-family: 'Montserrat', sans-serif;
@@ -31,184 +31,121 @@
     nav a {
       color: white;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    section {
-      padding: 2rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    /* Hero image apenas na página inicio */
-    #inicio .hero-image {
+    .hero-image {
       width: 100%;
       height: 400px;
       background-image: url('nova_colecao.jpg');
       background-size: cover;
       background-position: center;
-      margin-bottom: 2rem;
       animation: fadeIn 2s ease;
     }
-    #colecoes .hero-image,
-    #sobre .hero-image {
-      display: none;
-    }
-
     @keyframes fadeIn {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
-
-    /* Galeria clientes só no inicio */
-    #inicio .galeria-clientes {
+    section {
+      display: none;
+      padding: 2rem;
+      max-width: 1000px;
+      margin: auto;
+      animation: fadeIn 1s ease;
+    }
+    section:target {
+      display: block;
+    }
+    #inicio {
+      display: block;
+      text-align: center;
+      padding: 0;
+    }
+    #inicio h1 {
+      font-size: 3rem;
+      margin: 2rem 0;
+      font-weight: 700;
+    }
+    #inicio p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .galeria-clientes, .galeria-inicio {
       margin-top: 3rem;
       text-align: center;
     }
-    #inicio .galeria-clientes h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      color: #111;
-    }
-    #inicio .galeria-grid {
+    .galeria-inicio .galeria-grid, .galeria-clientes .galeria-grid {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 2rem;
     }
-    #inicio .foto-cliente {
+    .foto-cliente {
       width: 200px;
       flex-shrink: 0;
     }
-    #inicio .foto-cliente img {
+    .foto-cliente img {
       width: 100%;
       border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
     }
-    #inicio .foto-cliente img:hover {
+    .foto-cliente img:hover {
       transform: scale(1.05);
     }
-    #inicio .foto-cliente p {
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-      color: #666;
-    }
-
-    /* --- COLEÇÕES Estilo Estilo esenziaclub --- */
-    #colecoes h2 {
-      text-align: center;
-      margin-bottom: 2rem;
-      font-weight: 700;
-      font-size: 2rem;
-      color: #222;
-    }
-    .produtos-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .produto-item {
-      background: #fff;
-      border-radius: 15px;
-      box-shadow: 0 2px 15px rgb(0 0 0 / 0.1);
-      flex: 1 1 280px;
-      max-width: 300px;
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-      cursor: pointer;
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-      position: relative;
+    .produto-card {
+      background-color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
       overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease;
     }
-    .produto-item:hover {
-      box-shadow: 0 10px 30px rgb(0 0 0 / 0.2);
-      transform: translateY(-5px);
+    .produto-card:hover {
+      transform: scale(1.03);
     }
-    .produto-item img {
+    .produto-card img {
       width: 100%;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-      height: 300px;
-      object-fit: cover;
-      transition: transform 0.5s ease;
+      height: auto;
     }
-    .produto-item:hover img {
-      transform: scale(1.05);
-    }
-    .produto-info {
-      padding: 1rem 1.5rem 2rem;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-    .produto-info h3 {
+    .produto-card h3 {
+      margin: 1rem 0 0.5rem;
       font-size: 1.2rem;
-      margin: 0.5rem 0 1rem;
-      color: #222;
     }
-    .produto-info p.preco {
-      font-weight: 700;
-      font-size: 1.1rem;
+    .produto-card p {
+      font-weight: bold;
       color: #000;
       margin-bottom: 1rem;
     }
-    .btn-detalhes {
+    .produtos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    form {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    input[type="email"] {
+      padding: 0.5rem;
+      width: 60%;
+      max-width: 300px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      margin-left: 0.5rem;
       background-color: black;
       color: white;
-      padding: 0.6rem 1.2rem;
       border: none;
-      border-radius: 25px;
-      font-weight: 600;
+      border-radius: 6px;
       cursor: pointer;
-      text-decoration: none;
-      display: inline-block;
       transition: background-color 0.3s ease;
     }
-    .btn-detalhes:hover {
+    button:hover {
       background-color: #333;
     }
-
-    /* Detalhes do produto - aparece abaixo da lista */
-    .detalhes-produto {
-      margin-top: 3rem;
-      background: white;
-      padding: 1.5rem 2rem;
-      border-radius: 15px;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 2px 15px rgb(0 0 0 / 0.1);
-    }
-    .detalhes-produto h3 {
-      font-weight: 700;
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #111;
-    }
-    .detalhes-produto p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 0.8rem;
-      color: #333;
-    }
-
-    /* Footer */
     footer {
       text-align: center;
       padding: 1rem;
@@ -235,96 +172,73 @@
 </head>
 <body>
   <header>
-    <a href="#inicio"><img src="https://i.ibb.co/ksddPCTC/Logo-Site-01.png" alt="Unity Portugal" /></a>
+    <a href="#inicio"><img src="https://i.ibb.co/ksddPCTC/Logo-Site-01.png" alt="Unity Portugal"></a>
   </header>
   <nav>
     <a href="#inicio">Início</a>
     <a href="#colecoes">Coleções</a>
     <a href="#sobre">Sobre Nós</a>
-    <a href="#newsletter">Newsletter</a>
   </nav>
 
   <section id="inicio">
     <div class="hero-image"></div>
     <h1>Bem-vindo à Unity Portugal</h1>
     <p>A marca que representa atitude, união e identidade. Explora a nossa visão e descobre as nossas coleções.</p>
-    <div class="galeria-clientes">
-      <h2>Clientes com estilo Unity</h2>
+
+    <div class="galeria-inicio">
+      <h2>Últimos looks dos nossos clientes</h2>
       <div class="galeria-grid">
         <div class="foto-cliente">
-          <img src="cliente1.jpg" alt="Cliente 1" />
-          <p>@cliente1</p>
+          <img src="cliente1.jpg" alt="Cliente 1">
         </div>
         <div class="foto-cliente">
-          <img src="cliente2.jpg" alt="Cliente 2" />
-          <p>@cliente2</p>
+          <img src="cliente2.jpg" alt="Cliente 2">
         </div>
         <div class="foto-cliente">
-          <img src="cliente3.jpg" alt="Cliente 3" />
-          <p>@cliente3</p>
+          <img src="cliente3.jpg" alt="Cliente 3">
         </div>
       </div>
     </div>
+
+    <form>
+      <h2>Subscreve a nossa newsletter</h2>
+      <input type="email" placeholder="O teu e-mail">
+      <button type="submit">Subscrever</button>
+    </form>
   </section>
 
   <section id="colecoes">
-    <h2>Coleções</h2>
-    <div class="produtos-container">
-      <div class="produto-item" onclick="mostrarDetalhes('detalhe1')">
-        <img src="bestkiss.jpg" alt="Best Kiss Collection" />
-        <div class="produto-info">
-          <h3>Best Kiss Collection</h3>
-          <p class="preco">29,99€</p>
-          <a href="#detalhe1" class="btn-detalhes" onclick="event.stopPropagation()">Ver Detalhes</a>
-        </div>
+    <div class="produtos-grid">
+      <div class="produto-card">
+        <img src="bestkiss.jpg" alt="Best Kiss Collection">
+        <h3>Best Kiss Collection</h3>
+        <p>29,99€</p>
       </div>
-      <div class="produto-item" onclick="mostrarDetalhes('detalhe2')">
-        <img src="cupid.jpg" alt="Cupid Collection" />
-        <div class="produto-info">
-          <h3>Cupid Collection</h3>
-          <p class="preco">29,99€</p>
-          <a href="#detalhe2" class="btn-detalhes" onclick="event.stopPropagation()">Ver Detalhes</a>
-        </div>
+      <div class="produto-card">
+        <img src="cupid.jpg" alt="Cupid Collection">
+        <h3>Cupid Collection</h3>
+        <p>29,99€</p>
       </div>
-      <div class="produto-item" onclick="mostrarDetalhes('detalhe3')">
-        <img src="10years.jpg" alt="10 Years Exclusive" />
-        <div class="produto-info">
-          <h3>10 Years Exclusive</h3>
-          <p class="preco">34,99€</p>
-          <a href="#detalhe3" class="btn-detalhes" onclick="event.stopPropagation()">Ver Detalhes</a>
-        </div>
+      <div class="produto-card">
+        <img src="10years.jpg" alt="10 Years Exclusive">
+        <h3>10 Years Exclusive</h3>
+        <p>34,99€</p>
       </div>
-    </div>
-
-    <div id="detalhe1" class="detalhes-produto" style="display:none;">
-      <h3>Best Kiss Collection</h3>
-      <p>Oversized fit, 100% algodão, impressão de alta qualidade.</p>
-      <p><strong>Tamanhos:</strong> S, M, L, XL</p>
-      <p><strong>Composição:</strong> 100% Algodão</p>
-    </div>
-    <div id="detalhe2" class="detalhes-produto" style="display:none;">
-      <h3>Cupid Collection</h3>
-      <p>Estilo moderno com grafismo arrojado e toque suave.</p>
-      <p><strong>Tamanhos:</strong> S, M, L, XL</p>
-      <p><strong>Composição:</strong> 100% Algodão</p>
-    </div>
-    <div id="detalhe3" class="detalhes-produto" style="display:none;">
-      <h3>10 Years Exclusive</h3>
-      <p>Edição especial com detalhes bordados e etiqueta comemorativa.</p>
-      <p><strong>Tamanhos:</strong> M, L, XL</p>
-      <p><strong>Composição:</strong> Algodão & Poliéster</p>
     </div>
   </section>
 
   <section id="sobre">
-    <h2>Sobre Nós</h2>
-    <p>Conteúdo sobre a marca Unity Portugal...</p>
-  </section>
+    <h2>Sobre a Unity Portugal</h2>
+    <p>A Unity Portugal nasceu da vontade de unir estilo e identidade numa marca que representa a força da comunidade e a criatividade individual. A nossa missão é criar peças únicas, com design exclusivo, conforto e qualidade.</p>
 
-  <section id="newsletter">
-    <h2>Newsletter</h2>
+    <h3>Contactos</h3>
+    <p>Email: contacto@unityportugal.com</p>
+    <p>Instagram: <a href="https://www.instagram.com/unityportugal" target="_blank">@unityportugal</a></p>
+    <p>Localização: Portugal</p>
+
     <form>
-      <input type="email" placeholder="O teu email" />
+      <h2>Subscreve a nossa newsletter</h2>
+      <input type="email" placeholder="O teu e-mail">
       <button type="submit">Subscrever</button>
     </form>
   </section>
@@ -333,27 +247,12 @@
     <p>&copy; 2025 Unity Portugal. Todos os direitos reservados.</p>
     <div class="social-icons">
       <a href="https://www.instagram.com/unityportugal" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
       </a>
       <a href="https://www.tiktok.com/@unityportugal?lang=pt" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" />
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
       </a>
     </div>
   </footer>
-
-  <script>
-    function mostrarDetalhes(id) {
-      // Esconde todos os detalhes
-      document.querySelectorAll('.detalhes-produto').forEach(el => {
-        el.style.display = 'none';
-      });
-      // Mostra o selecionado
-      const detalhe = document.getElementById(id);
-      if (detalhe) {
-        detalhe.style.display = 'block';
-        detalhe.scrollIntoView({behavior: 'smooth'});
-      }
-    }
-  </script>
 </body>
 </html>
