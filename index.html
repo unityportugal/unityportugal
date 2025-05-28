@@ -1,28 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Unity Portugal</title>
   <style>
-    /* Reset e base */
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       background-color: #f5f5f5;
       color: #333;
     }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-    a:hover {
-      color: #ff5a5f;
-    }
-
-    /* Header */
     header {
       background-color: #000;
+      color: white;
       padding: 1rem;
       text-align: center;
     }
@@ -30,8 +21,6 @@
       max-height: 60px;
       cursor: pointer;
     }
-
-    /* Navegação */
     nav {
       display: flex;
       justify-content: center;
@@ -41,14 +30,8 @@
     }
     nav a {
       color: white;
-      font-weight: 600;
-      transition: color 0.3s ease;
+      text-decoration: none;
     }
-    nav a:hover {
-      color: #ff5a5f;
-    }
-
-    /* Hero imagem e secções */
     .hero-image {
       width: 100%;
       height: 400px;
@@ -64,7 +47,6 @@
     }
     section:target {
       display: block;
-      animation: fadeIn 0.6s ease forwards;
     }
     #inicio {
       display: block;
@@ -75,16 +57,9 @@
       display: block;
     }
     #colecoes .hero-image,
-    #sobre .hero-image,
-    #newsletter .hero-image {
+    #sobre .hero-image {
       display: none;
     }
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(10px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
-
-    /* Início */
     #inicio h1 {
       font-size: 2.5rem;
       margin: 2rem 0;
@@ -92,10 +67,8 @@
     #inicio p {
       font-size: 1.2rem;
       max-width: 600px;
-      margin: 0 auto 3rem;
+      margin: 0 auto;
     }
-
-    /* Grid produtos */
     .produtos-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -105,187 +78,53 @@
     .produto-card {
       background-color: white;
       border-radius: 10px;
-      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
       overflow: hidden;
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-    .produto-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
     }
     .produto-card img {
       width: 100%;
       height: auto;
-      display: block;
     }
     .produto-card h3 {
       margin: 1rem 0 0.5rem;
-      font-weight: 700;
-      color: #222;
     }
     .produto-card a {
       display: inline-block;
       margin-bottom: 1rem;
-      color: #ff5a5f;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    .produto-card a:hover {
+      color: black;
       text-decoration: underline;
     }
-
-    /* Detalhes do produto */
-    .produto-detalhe-container {
-      background: white;
-      max-width: 900px;
-      margin: 2rem auto;
-      display: flex;
-      flex-wrap: wrap;
-      border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
-    }
-    .produto-imagem {
-      flex: 1 1 400px;
-      min-width: 320px;
-      background: #fafafa;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2rem;
-    }
-    .produto-imagem img {
-      max-width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    }
-    .produto-info {
-      flex: 1 1 400px;
-      padding: 2rem 3rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .produto-info h2 {
-      margin-bottom: 1rem;
-      font-size: 2.2rem;
-      color: #111;
-      font-weight: 700;
-    }
-    .produto-info p {
-      margin: 0.5rem 0;
-      font-size: 1.1rem;
-      color: #555;
-    }
-    .produto-info strong {
-      color: #222;
-    }
-    .tamanhos {
-      margin: 1.5rem 0;
-    }
-    .tamanhos label {
-      margin-right: 1rem;
-      cursor: pointer;
-      font-weight: 600;
-      color: #444;
-    }
-    .tamanhos input[type="radio"] {
-      margin-right: 0.3rem;
-      cursor: pointer;
-    }
-    .btn-adicionar {
-      background-color: #ff5a5f;
-      border: none;
-      padding: 0.9rem 2.5rem;
-      color: white;
-      font-weight: 700;
-      font-size: 1.1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 2rem;
-      transition: background-color 0.3s ease;
-      align-self: start;
-      box-shadow: 0 6px 15px rgba(255, 90, 95, 0.4);
-    }
-    .btn-adicionar:hover {
-      background-color: #e04e53;
-      box-shadow: 0 8px 20px rgba(224, 78, 83, 0.6);
-    }
-
-    /* Sobre Nós */
-    #sobre {
-      max-width: 700px;
-      margin: 2rem auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      line-height: 1.6;
-      font-size: 1.1rem;
-      color: #444;
-    }
-    #sobre h2 {
-      text-align: center;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #222;
-    }
-
-    /* Newsletter */
-    #newsletter {
-      max-width: 700px;
-      margin: 2rem auto 4rem;
-      background: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      text-align: center;
-    }
-    #newsletter h2 {
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: #222;
-    }
-    #newsletter form {
+    .detalhes-produto {
       margin-top: 1rem;
+      text-align: left;
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-    #newsletter input[type="email"] {
+    form {
+      margin-top: 2rem;
+      text-align: center;
+    }
+    input[type="email"] {
       padding: 0.5rem;
       width: 60%;
       max-width: 300px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
     }
-    #newsletter input[type="email"]:focus {
-      outline: none;
-      border-color: #ff5a5f;
-    }
-    #newsletter button[type="submit"] {
-      padding: 0.5rem 1.5rem;
+    button {
+      padding: 0.5rem 1rem;
       margin-left: 0.5rem;
-      background-color: #000;
+      background-color: black;
       color: white;
       border: none;
       cursor: pointer;
-      border-radius: 5px;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
     }
-    #newsletter button[type="submit"]:hover {
-      background-color: #333;
-    }
-
-    /* Footer */
     footer {
       text-align: center;
       padding: 1rem;
       background-color: #000;
       color: white;
-      margin-top: 3rem;
     }
     .social-icons {
       margin-top: 1rem;
@@ -303,31 +142,45 @@
     .social-icons img:hover {
       filter: grayscale(0%);
     }
-
-    /* Responsivo */
-    @media (max-width: 720px) {
-      nav {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      .produto-detalhe-container {
-        flex-direction: column;
-        padding: 1rem;
-      }
-      .produto-info {
-        padding: 1.5rem 1rem;
-      }
-      .produto-imagem {
-        padding: 1rem;
-      }
+    .galeria-clientes {
+      margin-top: 3rem;
+      text-align: center;
+    }
+    .galeria-clientes h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      color: #111;
+    }
+    .galeria-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .foto-cliente {
+      width: 200px;
+      flex-shrink: 0;
+    }
+    .foto-cliente img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .foto-cliente img:hover {
+      transform: scale(1.05);
+    }
+    .foto-cliente p {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #666;
     }
   </style>
 </head>
 <body>
-
   <header>
     <a href="#inicio">
-      <img src="logo_unity_portugal.png" alt="Unity Portugal logo" />
+      <img src="logo_unity_portugal.png" alt="Unity Portugal logo">
     </a>
   </header>
 
@@ -342,108 +195,88 @@
     <div class="hero-image"></div>
     <h1>Bem-vindo à Unity Portugal</h1>
     <p>A marca que representa atitude, união e identidade. Explora a nossa visão e descobre as nossas coleções.</p>
+    <div class="galeria-clientes">
+      <h2>Fotos dos nossos clientes</h2>
+      <div class="galeria-grid">
+        <div class="foto-cliente">
+          <img src="cliente1.jpg" alt="Cliente 1" />
+          <p>@maria.style</p>
+        </div>
+        <div class="foto-cliente">
+          <img src="cliente2.jpg" alt="Cliente 2" />
+          <p>@joaofitwear</p>
+        </div>
+        <div class="foto-cliente">
+          <img src="cliente3.jpg" alt="Cliente 3" />
+          <p>@ineslovesunity</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="colecoes">
     <h2 style="text-align: center;">Coleções</h2>
     <div class="produtos-grid">
       <div class="produto-card">
-        <img src="best_kiss.jpg" alt="Best Kiss Collection" />
+        <img src="best_kiss.jpg" alt="Best Kiss Collection">
         <h3>Best Kiss Collection</h3>
         <a href="#produto1">Ver mais</a>
       </div>
       <div class="produto-card">
-        <img src="cupid.jpg" alt="Cupid Collection" />
+        <img src="cupid.jpg" alt="Cupid Collection">
         <h3>Cupid Collection</h3>
         <a href="#produto2">Ver mais</a>
       </div>
       <div class="produto-card">
-        <img src="10years.jpg" alt="10 Years Exclusive" />
+        <img src="10years.jpg" alt="10 Years Exclusive">
         <h3>10 Years Exclusive</h3>
         <a href="#produto3">Ver mais</a>
       </div>
     </div>
   </section>
 
-  <!-- Produto 1 -->
   <section id="produto1">
-    <div class="produto-detalhe-container">
-      <div class="produto-imagem">
-        <img src="best_kiss.jpg" alt="Best Kiss Collection" />
-      </div>
-      <div class="produto-info">
-        <h2>Best Kiss Collection</h2>
-        <p><strong>Preço:</strong> 49,99€</p>
-        <p>Uma coleção que simboliza a paixão e o estilo único. Camisetas com design exclusivo, feitas com algodão orgânico.</p>
-        <div class="tamanhos">
-          <p><strong>Tamanho:</strong></p>
-          <label><input type="radio" name="tamanho1" value="S" /> S</label>
-          <label><input type="radio" name="tamanho1" value="M" /> M</label>
-          <label><input type="radio" name="tamanho1" value="L" /> L</label>
-          <label><input type="radio" name="tamanho1" value="XL" /> XL</label>
-        </div>
-        <button class="btn-adicionar" onclick="adicionarAoCarrinho('Best Kiss Collection')">Adicionar ao Carrinho</button>
-      </div>
+    <h2>Best Kiss Collection</h2>
+    <img src="best_kiss.jpg" alt="Best Kiss Collection">
+    <div class="detalhes-produto">
+      <p><strong>Preço:</strong> 25€</p>
+      <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
+      <p><strong>Composição:</strong> 100% Algodão orgânico</p>
+      <p><strong>Características:</strong> Unissexo, corte regular, serigrafia de alta qualidade.</p>
     </div>
   </section>
 
-  <!-- Produto 2 -->
   <section id="produto2">
-    <div class="produto-detalhe-container">
-      <div class="produto-imagem">
-        <img src="cupid.jpg" alt="Cupid Collection" />
-      </div>
-      <div class="produto-info">
-        <h2>Cupid Collection</h2>
-        <p><strong>Preço:</strong> 39,99€</p>
-        <p>Expressa o amor e a união com um design delicado e cores vibrantes, ideal para todas as ocasiões.</p>
-        <div class="tamanhos">
-          <p><strong>Tamanho:</strong></p>
-          <label><input type="radio" name="tamanho2" value="S" /> S</label>
-          <label><input type="radio" name="tamanho2" value="M" /> M</label>
-          <label><input type="radio" name="tamanho2" value="L" /> L</label>
-          <label><input type="radio" name="tamanho2" value="XL" /> XL</label>
-        </div>
-        <button class="btn-adicionar" onclick="adicionarAoCarrinho('Cupid Collection')">Adicionar ao Carrinho</button>
-      </div>
+    <h2>Cupid Collection</h2>
+    <img src="cupid.jpg" alt="Cupid Collection">
+    <div class="detalhes-produto">
+      <p><strong>Preço:</strong> 25€</p>
+      <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
+      <p><strong>Composição:</strong> 100% Algodão orgânico</p>
+      <p><strong>Características:</strong> Unissexo, corte regular, serigrafia de alta qualidade.</p>
     </div>
   </section>
 
-  <!-- Produto 3 -->
   <section id="produto3">
-    <div class="produto-detalhe-container">
-      <div class="produto-imagem">
-        <img src="10years.jpg" alt="10 Years Exclusive" />
-      </div>
-      <div class="produto-info">
-        <h2>10 Years Exclusive</h2>
-        <p><strong>Preço:</strong> 59,99€</p>
-        <p>Edição especial para celebrar 10 anos da Unity Portugal. Materiais premium e design sofisticado.</p>
-        <div class="tamanhos">
-          <p><strong>Tamanho:</strong></p>
-          <label><input type="radio" name="tamanho3" value="S" /> S</label>
-          <label><input type="radio" name="tamanho3" value="M" /> M</label>
-          <label><input type="radio" name="tamanho3" value="L" /> L</label>
-          <label><input type="radio" name="tamanho3" value="XL" /> XL</label>
-        </div>
-        <button class="btn-adicionar" onclick="adicionarAoCarrinho('10 Years Exclusive')">Adicionar ao Carrinho</button>
-      </div>
+    <h2>10 Years Exclusive</h2>
+    <img src="10years.jpg" alt="10 Years Exclusive">
+    <div class="detalhes-produto">
+      <p><strong>Preço:</strong> 25€</p>
+      <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
+      <p><strong>Composição:</strong> 100% Algodão orgânico</p>
+      <p><strong>Características:</strong> Unissexo, corte regular, serigrafia de alta qualidade.</p>
     </div>
   </section>
 
   <section id="sobre">
     <h2>Sobre Nós</h2>
-    <p>
-      A Unity Portugal é uma marca criada para quem valoriza identidade, atitude e união.
-      Desde o nosso lançamento, temos focado em oferecer produtos de alta qualidade com design exclusivo que representem a essência do nosso público.
-      Acreditamos que a roupa é mais do que um estilo — é uma forma de expressão e ligação.
-    </p>
+    <p>A Unity Portugal é uma marca de roupa criada para representar união, identidade e atitude. Inspirados pela cultura de rua portuguesa.</p>
   </section>
 
   <section id="newsletter">
-    <h2>Subscreve a nossa Newsletter</h2>
-    <form onsubmit="return subscreverNewsletter(event)">
-      <input type="email" id="emailNewsletter" placeholder="O teu email" required />
+    <h2>Fica a par das novidades</h2>
+    <form>
+      <input type="email" placeholder="O teu email" required>
       <button type="submit">Subscrever</button>
     </form>
   </section>
@@ -451,31 +284,13 @@
   <footer>
     <p>&copy; 2025 Unity Portugal. Todos os direitos reservados.</p>
     <div class="social-icons">
-      <a href="https://instagram.com/unityportugal" target="_blank" rel="noopener noreferrer">
-        <img src="instagram_icon.svg" alt="Instagram" />
+      <a href="https://www.instagram.com/unityportugal" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
       </a>
-      <a href="https://facebook.com/unityportugal" target="_blank" rel="noopener noreferrer">
-        <img src="facebook_icon.svg" alt="Facebook" />
-      </a>
-      <a href="https://twitter.com/unityportugal" target="_blank" rel="noopener noreferrer">
-        <img src="twitter_icon.svg" alt="Twitter" />
+      <a href="https://www.tiktok.com/@unityportugal?lang=pt" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
       </a>
     </div>
   </footer>
-
-  <script>
-    function adicionarAoCarrinho(produto) {
-      alert(produto + " foi adicionado ao carrinho!");
-    }
-
-    function subscreverNewsletter(event) {
-      event.preventDefault();
-      const email = document.getElementById('emailNewsletter').value;
-      alert("Obrigado por subscrever, " + email + "!");
-      document.getElementById('emailNewsletter').value = '';
-      return false;
-    }
-  </script>
-
 </body>
 </html>
