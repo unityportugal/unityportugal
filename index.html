@@ -32,15 +32,21 @@
     nav a {
       color: white;
       text-decoration: none;
+      cursor: pointer;
     }
     section {
       padding: 2rem;
       max-width: 800px;
       margin: auto;
+      display: none; /* por defeito escondido */
+    }
+    section.active {
+      display: block; /* só ativa quando tiver classe active */
     }
     #inicio {
       text-align: center;
       padding: 4rem 2rem;
+      display: block; /* mostra a página inicial por defeito */
     }
     #inicio h1 {
       font-size: 2.5rem;
@@ -139,39 +145,79 @@
     }
   </style>
   <script>
-    function mostrarDetalhes(id) {
-      document.querySelector('.grade-produtos').style.display = 'none';
-      document.querySelectorAll('.detalhes-produto').forEach(div => div.style.display = 'none');
-      document.getElementById(id).style.display = 'block';
+    // Função para mostrar só a secção clicada
+    function mostrarSecao(secaoId) {
+      // Esconder todas as secções principais
+      const secoes = document.querySelectorAll('section');
+      secoes.forEach(sec => {
+        sec.classList.remove('active');
+        // esconder detalhes de produto sempre que muda de secção
+        const detalhes = sec.querySelectorAll('.detalhes-produto');
+        detalhes.forEach(det => det.style.display = 'none');
+        // mostrar grade produtos na secção colecoes
+        if(sec.id === 'colecoes') {
+          sec.querySelector('.grade-produtos').style.display = 'flex';
+        }
+      });
+
+      // Mostrar só a secção selecionada
+      const secao = document.getElementById(secaoId);
+      if (secao) {
+        secao.classList.add('active');
+      }
     }
 
+    // Mostrar detalhes do produto e esconder a grade de produtos
+    function mostrarDetalhes(id) {
+      const secaoColecoes = document.getElementById('colecoes');
+      secaoColecoes.querySelector('.grade-produtos').style.display = 'none';
+
+      // esconder todos os detalhes primeiro
+      secaoColecoes.querySelectorAll('.detalhes-produto').forEach(div => div.style.display = 'none');
+
+      // mostrar detalhe selecionado
+      const detalhe = document.getElementById(id);
+      if (detalhe) {
+        detalhe.style.display = 'block';
+      }
+    }
+
+    // Fechar detalhes do produto e mostrar a grade de produtos
     function fecharDetalhes(id) {
-      document.getElementById(id).style.display = 'none';
-      document.querySelector('.grade-produtos').style.display = 'flex';
+      const detalhe = document.getElementById(id);
+      if (detalhe) {
+        detalhe.style.display = 'none';
+      }
+      document.getElementById('colecoes').querySelector('.grade-produtos').style.display = 'flex';
+    }
+
+    // Inicializar para garantir que só "inicio" está visível
+    window.onload = () => {
+      mostrarSecao('inicio');
     }
   </script>
 </head>
 <body>
   <header>
-    <a href="#inicio">
+    <a href="#" onclick="mostrarSecao('inicio')">
       <img src="logo_unity_portugal.png" alt="Unity Portugal logo" />
     </a>
     <p>Mais do que uma marca de roupa, um modo de vida</p>
   </header>
 
   <nav>
-    <a href="#inicio">Início</a>
-    <a href="#colecoes">Coleções</a>
-    <a href="#sobre">Sobre Nós</a>
-    <a href="#newsletter">Newsletter</a>
+    <a onclick="mostrarSecao('inicio')">Início</a>
+    <a onclick="mostrarSecao('colecoes')">Coleções</a>
+    <a onclick="mostrarSecao('sobre')">Sobre Nós</a>
+    <a onclick="mostrarSecao('newsletter')">Newsletter</a>
   </nav>
 
-  <section id="inicio">
+  <section id="inicio" class="active">
     <h1>Bem-vindo à Unity Portugal</h1>
     <p>A marca que representa atitude, união e identidade. Explora a nossa visão e descobre as nossas coleções.</p>
   </section>
 
-  <section id="colecoes" class="produto">
+  <section id="colecoes">
     <h2>Coleções</h2>
     <div class="grade-produtos">
       <div class="produto-card" onclick="mostrarDetalhes('produto1')">
@@ -197,48 +243,4 @@
       <button onclick="fecharDetalhes('produto1')">Fechar</button>
     </div>
 
-    <div id="produto2" class="detalhes-produto">
-      <h3>T-shirt Lisboa</h3>
-      <img src="tshirt2.jpg" alt="T-shirt Lisboa" />
-      <p><strong>Preço:</strong> 30€</p>
-      <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
-      <p><strong>Composição:</strong> 100% Algodão orgânico</p>
-      <button onclick="fecharDetalhes('produto2')">Fechar</button>
-    </div>
-
-    <div id="produto3" class="detalhes-produto">
-      <h3>T-shirt Porto</h3>
-      <img src="tshirt3.jpg" alt="T-shirt Porto" />
-      <p><strong>Preço:</strong> 28€</p>
-      <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
-      <p><strong>Composição:</strong> 100% Algodão orgânico</p>
-      <button onclick="fecharDetalhes('produto3')">Fechar</button>
-    </div>
-  </section>
-
-  <section id="sobre">
-    <h2>Sobre Nós</h2>
-    <p>A Unity Portugal é uma marca de roupa criada para representar união, identidade e atitude. Inspirados pela cultura de rua portuguesa.</p>
-  </section>
-
-  <section id="newsletter">
-    <h2>Fica a par das novidades</h2>
-    <form>
-      <input type="email" placeholder="O teu email" required />
-      <button type="submit">Subscrever</button>
-    </form>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Unity Portugal. Todos os direitos reservados.</p>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/unityportugal" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
-      </a>
-      <a href="https://www.tiktok.com/@unityportugal?lang=pt" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" />
-      </a>
-    </div>
-  </footer>
-</body>
-</html>
+    <div id="produto2" cl
