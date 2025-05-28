@@ -32,13 +32,17 @@
       color: white;
       text-decoration: none;
     }
+    /* Banner hero-image ajustado para largura total da viewport */
     .hero-image {
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      overflow: hidden;
+    }
+    .hero-image img {
       width: 100%;
-      height: 400px;
-      background-image: url('nova_colecao.jpg');
-      background-size: cover;
-      background-position: center;
-      animation: fadeIn 2s ease;
+      height: auto;
+      display: block;
+      object-fit: cover;
     }
     @keyframes fadeIn {
       0% { opacity: 0; transform: translateY(20px); }
@@ -63,7 +67,7 @@
     #inicio p {
       font-size: 1.2rem;
       max-width: 600px;
-      margin: 0 auto;
+      margin: 0 auto 2rem;
     }
     .galeria-inicio {
       margin-top: 3rem;
@@ -180,54 +184,54 @@
   </nav>
 
   <section id="inicio">
-  <div class="hero-image">
-    <a href="https://ibb.co/kL6NpGV" target="_blank" rel="noopener noreferrer">
-      <img src="https://i.ibb.co/8y41Jmn/Banner-Site.jpg" alt="Banner-Site" />
-    </a>
-  </div>
-  <h1>Bem-vindo à Unity Portugal</h1>
-  <p>A marca que representa atitude, união e identidade. Explora a nossa visão e descobre as nossas coleções.</p>
+    <div class="hero-image">
+      <a href="https://ibb.co/kL6NpGV" target="_blank" rel="noopener noreferrer">
+        <img src="https://i.ibb.co/8y41Jmn/Banner-Site.jpg" alt="Banner-Site" />
+      </a>
+    </div>
+    <h1>Bem-vindo à Unity Portugal</h1>
+    <p>A marca que representa atitude, união e identidade. Explora a nossa visão e descobre as nossas coleções.</p>
 
-  <div class="galeria-inicio">
-    <h2>Últimos looks dos nossos clientes</h2>
-    <div class="galeria-grid">
-      <div class="foto-cliente">
-        <img src="cliente1.jpg" alt="Cliente 1" />
-      </div>
-      <div class="foto-cliente">
-        <img src="cliente2.jpg" alt="Cliente 2" />
-      </div>
-      <div class="foto-cliente">
-        <img src="cliente3.jpg" alt="Cliente 3" />
+    <div class="galeria-inicio">
+      <h2>Últimos looks dos nossos clientes</h2>
+      <div class="galeria-grid">
+        <div class="foto-cliente">
+          <img src="cliente1.jpg" alt="Cliente 1" />
+        </div>
+        <div class="foto-cliente">
+          <img src="cliente2.jpg" alt="Cliente 2" />
+        </div>
+        <div class="foto-cliente">
+          <img src="cliente3.jpg" alt="Cliente 3" />
+        </div>
       </div>
     </div>
-  </div>
 
-  <form>
-    <h2>Subscreve a nossa newsletter</h2>
-    <input type="email" placeholder="O teu e-mail" />
-    <button type="submit">Subscrever</button>
-  </form>
-</section>
+    <form>
+      <h2>Subscreve a nossa newsletter</h2>
+      <input type="email" placeholder="O teu e-mail" />
+      <button type="submit">Subscrever</button>
+    </form>
+  </section>
 
   <section id="colecoes">
     <div class="produtos-grid">
       <a href="bestkiss.html" class="produto-card">
-  <img src="https://i.ibb.co/fK5dwwT/Foto-Produto.jpg" alt="Best Kiss Collection">
-  <h3>Best Kiss Collection</h3>
-  <p>44,90€</p>
-</a>
+        <img src="https://i.ibb.co/fK5dwwT/Foto-Produto.jpg" alt="Best Kiss Collection">
+        <h3>Best Kiss Collection</h3>
+        <p>44,90€</p>
+      </a>
       <a href="cupid.html" class="produto-card">
-  <img src="https://i.ibb.co/M5Wn7jv2/Foto-Produto.jpg" alt="Cupid Collection">
-  <h3>Cupid Collection</h3>
-  <p>49,90€</p>
-  <p style="color: red; font-weight: bold;">Esgotado</p>
-</a>
+        <img src="https://i.ibb.co/M5Wn7jv2/Foto-Produto.jpg" alt="Cupid Collection">
+        <h3>Cupid Collection</h3>
+        <p>49,90€</p>
+        <p style="color: red; font-weight: bold;">Esgotado</p>
+      </a>
       <a href="10years.html" class="produto-card">
-  <img src="https://i.ibb.co/M5GQ3RFx/Foto-Produto-01.jpg" alt="10 Years Exclusive">
-  <h3>10 Years Exclusive</h3>
-  <p>50,00€</p>
-</a>
+        <img src="https://i.ibb.co/M5GQ3RFx/Foto-Produto-01.jpg" alt="10 Years Exclusive">
+        <h3>10 Years Exclusive</h3>
+        <p>50,00€</p>
+      </a>
     </div>
   </section>
 
