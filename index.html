@@ -2,7 +2,7 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Unity Portugal</title>
   <style>
     body {
@@ -11,17 +11,20 @@
       background-color: #f5f5f5;
       color: #333;
     }
+
     header {
       background-color: #000;
       color: white;
       padding: 2rem 1rem;
       text-align: center;
     }
+
     header img {
       max-height: 80px;
       margin-bottom: 1rem;
       cursor: pointer;
     }
+
     nav {
       display: flex;
       justify-content: center;
@@ -29,89 +32,106 @@
       padding: 1rem;
       background-color: #111;
     }
+
     nav a {
       color: white;
       text-decoration: none;
       cursor: pointer;
     }
+
+    .banner {
+      position: relative;
+      width: 100%;
+      max-height: 500px;
+      overflow: hidden;
+      display: none;
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .banner-texto {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 2rem;
+      border-radius: 10px;
+    }
+
+    .banner-texto h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .banner-texto button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      background-color: white;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
     section {
+      display: none;
       padding: 2rem;
       max-width: 800px;
       margin: auto;
-      display: none; /* por defeito escondido */
     }
-    section.active {
-      display: block; /* só ativa quando tiver classe active */
-    }
+
     #inicio {
       text-align: center;
-      padding: 4rem 2rem;
-      display: block; /* mostra a página inicial por defeito */
     }
+
     #inicio h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
     }
+
     #inicio p {
       font-size: 1.2rem;
       max-width: 600px;
       margin: 0 auto;
     }
-    .grade-produtos {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .produto-card {
-      border: 1px solid #ccc;
-      padding: 1rem;
-      width: 200px;
-      cursor: pointer;
-      border-radius: 8px;
+
+    .produto {
       text-align: center;
-      background-color: white;
-      transition: box-shadow 0.3s;
     }
-    .produto-card:hover {
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-    }
-    .produto-card img {
+
+    .produto img {
       max-width: 100%;
-      border-radius: 8px;
+      height: auto;
+      border-radius: 10px;
     }
+
     .detalhes-produto {
-      max-width: 600px;
-      margin: 2rem auto;
-      background-color: white;
+      margin-top: 1rem;
+      text-align: left;
+      background-color: #fff;
       padding: 1rem;
       border-radius: 8px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
-      text-align: center;
-      display: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-    .detalhes-produto img {
-      max-width: 100%;
-      border-radius: 8px;
-    }
-    .detalhes-produto button {
-      margin-top: 1rem;
-      padding: 0.5rem 1rem;
-      background-color: black;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
+
     form {
       margin-top: 2rem;
       text-align: center;
     }
+
     input[type="email"] {
       padding: 0.5rem;
       width: 60%;
       max-width: 300px;
     }
+
     button {
       padding: 0.5rem 1rem;
       margin-left: 0.5rem;
@@ -119,88 +139,40 @@
       color: white;
       border: none;
       cursor: pointer;
-      border-radius: 5px;
     }
+
     footer {
       text-align: center;
       padding: 1rem;
       background-color: #000;
       color: white;
     }
+
     .social-icons {
       margin-top: 1rem;
     }
+
     .social-icons a {
       margin: 0 10px;
       display: inline-block;
     }
+
     .social-icons img {
       width: 20px;
       height: 20px;
       filter: grayscale(100%);
       transition: filter 0.3s;
     }
+
     .social-icons img:hover {
       filter: grayscale(0%);
     }
   </style>
-  <script>
-    // Função para mostrar só a secção clicada
-    function mostrarSecao(secaoId) {
-      // Esconder todas as secções principais
-      const secoes = document.querySelectorAll('section');
-      secoes.forEach(sec => {
-        sec.classList.remove('active');
-        // esconder detalhes de produto sempre que muda de secção
-        const detalhes = sec.querySelectorAll('.detalhes-produto');
-        detalhes.forEach(det => det.style.display = 'none');
-        // mostrar grade produtos na secção colecoes
-        if(sec.id === 'colecoes') {
-          sec.querySelector('.grade-produtos').style.display = 'flex';
-        }
-      });
-
-      // Mostrar só a secção selecionada
-      const secao = document.getElementById(secaoId);
-      if (secao) {
-        secao.classList.add('active');
-      }
-    }
-
-    // Mostrar detalhes do produto e esconder a grade de produtos
-    function mostrarDetalhes(id) {
-      const secaoColecoes = document.getElementById('colecoes');
-      secaoColecoes.querySelector('.grade-produtos').style.display = 'none';
-
-      // esconder todos os detalhes primeiro
-      secaoColecoes.querySelectorAll('.detalhes-produto').forEach(div => div.style.display = 'none');
-
-      // mostrar detalhe selecionado
-      const detalhe = document.getElementById(id);
-      if (detalhe) {
-        detalhe.style.display = 'block';
-      }
-    }
-
-    // Fechar detalhes do produto e mostrar a grade de produtos
-    function fecharDetalhes(id) {
-      const detalhe = document.getElementById(id);
-      if (detalhe) {
-        detalhe.style.display = 'none';
-      }
-      document.getElementById('colecoes').querySelector('.grade-produtos').style.display = 'flex';
-    }
-
-    // Inicializar para garantir que só "inicio" está visível
-    window.onload = () => {
-      mostrarSecao('inicio');
-    }
-  </script>
 </head>
 <body>
   <header>
-    <a href="#" onclick="mostrarSecao('inicio')">
-      <img src="logo_unity_portugal.png" alt="Unity Portugal logo" />
+    <a onclick="mostrarSecao('inicio')">
+      <img src="logo_unity_portugal.png" alt="Unity Portugal logo">
     </a>
     <p>Mais do que uma marca de roupa, um modo de vida</p>
   </header>
@@ -212,53 +184,30 @@
     <a onclick="mostrarSecao('newsletter')">Newsletter</a>
   </nav>
 
-  <section id="inicio" class="active">
+  <!-- Banner só aparece na página Início -->
+  <div id="banner-nova-colecao" class="banner">
+    <img src="nova_colecao.jpg" alt="Nova Coleção Unity Portugal">
+    <div class="banner-texto">
+      <h2>Nova Coleção Verão 2025</h2>
+      <button onclick="mostrarSecao('colecoes')">Ver Coleção</button>
+    </div>
+  </div>
+
+  <section id="inicio">
     <h1>Bem-vindo à Unity Portugal</h1>
     <p>A marca que representa atitude, união e identidade. Explora a nossa visão e descobre as nossas coleções.</p>
   </section>
 
-  <section id="colecoes">
+  <section id="colecoes" class="produto">
     <h2>Coleções</h2>
-    <div class="grade-produtos">
-      <div class="produto-card" onclick="mostrarDetalhes('produto1')">
-        <img src="tshirt1.jpg" alt="T-shirt Unity Portugal" />
-        <h3>T-shirt Unity Portugal</h3>
-      </div>
-      <div class="produto-card" onclick="mostrarDetalhes('produto2')">
-        <img src="tshirt2.jpg" alt="T-shirt Lisboa" />
-        <h3>T-shirt Lisboa</h3>
-      </div>
-      <div class="produto-card" onclick="mostrarDetalhes('produto3')">
-        <img src="tshirt3.jpg" alt="T-shirt Porto" />
-        <h3>T-shirt Porto</h3>
-      </div>
-    </div>
-
-    <div id="produto1" class="detalhes-produto">
+    <img src="tshirt_unity_portugal.jpg" alt="Nova t-shirt Unity Portugal">
+    <p>Design exclusivo, limitado e com muito estilo. Disponível brevemente.</p>
+    <div class="detalhes-produto">
       <h3>T-shirt Unity Portugal</h3>
-      <img src="tshirt1.jpg" alt="T-shirt Unity Portugal" />
       <p><strong>Preço:</strong> 25€</p>
       <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
       <p><strong>Composição:</strong> 100% Algodão orgânico</p>
-      <button onclick="fecharDetalhes('produto1')">Fechar</button>
-    </div>
-
-    <div id="produto2" class="detalhes-produto">
-      <h3>T-shirt Lisboa</h3>
-      <img src="tshirt2.jpg" alt="T-shirt Lisboa" />
-      <p><strong>Preço:</strong> 30€</p>
-      <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
-      <p><strong>Composição:</strong> 100% Algodão orgânico</p>
-      <button onclick="fecharDetalhes('produto2')">Fechar</button>
-    </div>
-
-    <div id="produto3" class="detalhes-produto">
-      <h3>T-shirt Porto</h3>
-      <img src="tshirt3.jpg" alt="T-shirt Porto" />
-      <p><strong>Preço:</strong> 28€</p>
-      <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
-      <p><strong>Composição:</strong> 100% Algodão orgânico</p>
-      <button onclick="fecharDetalhes('produto3')">Fechar</button>
+      <p><strong>Características:</strong> Unissexo, corte regular, serigrafia de alta qualidade.</p>
     </div>
   </section>
 
@@ -270,7 +219,7 @@
   <section id="newsletter">
     <h2>Fica a par das novidades</h2>
     <form>
-      <input type="email" placeholder="O teu email" required />
+      <input type="email" placeholder="O teu email" required>
       <button type="submit">Subscrever</button>
     </form>
   </section>
@@ -279,12 +228,35 @@
     <p>&copy; 2025 Unity Portugal. Todos os direitos reservados.</p>
     <div class="social-icons">
       <a href="https://www.instagram.com/unityportugal" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
       </a>
       <a href="https://www.tiktok.com/@unityportugal?lang=pt" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" />
+        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok">
       </a>
     </div>
   </footer>
+
+  <script>
+    function mostrarSecao(id) {
+      const secoes = document.querySelectorAll('section');
+      secoes.forEach(secao => secao.style.display = 'none');
+
+      const secaoAtiva = document.getElementById(id);
+      if (secaoAtiva) {
+        secaoAtiva.style.display = 'block';
+      }
+
+      // Mostrar banner só na página "inicio"
+      const banner = document.getElementById('banner-nova-colecao');
+      if (id === 'inicio') {
+        banner.style.display = 'block';
+      } else {
+        banner.style.display = 'none';
+      }
+    }
+
+    // Mostrar a secção inicial ao carregar a página
+    window.onload = () => mostrarSecao('inicio');
+  </script>
 </body>
 </html>
