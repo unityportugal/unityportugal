@@ -2,29 +2,27 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Unity Portugal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       background-color: #f5f5f5;
       color: #333;
     }
-
     header {
       background-color: #000;
       color: white;
       padding: 2rem 1rem;
       text-align: center;
     }
-
     header img {
       max-height: 80px;
       margin-bottom: 1rem;
       cursor: pointer;
     }
-
     nav {
       display: flex;
       justify-content: center;
@@ -32,183 +30,174 @@
       padding: 1rem;
       background-color: #111;
     }
-
     nav a {
       color: white;
       text-decoration: none;
-      cursor: pointer;
     }
-
-    .banner {
-      position: relative;
-      width: 100%;
-      max-height: 500px;
-      overflow: hidden;
-      display: none;
-    }
-
-    .banner img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .banner-texto {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: white;
-      text-align: center;
-      background: rgba(0, 0, 0, 0.5);
-      padding: 2rem;
-      border-radius: 10px;
-    }
-
-    .banner-texto h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .banner-texto button {
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      background-color: white;
-      color: black;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-
     section {
       display: none;
       padding: 2rem;
-      max-width: 800px;
+      max-width: 1000px;
       margin: auto;
     }
-
+    section:target {
+      display: block;
+    }
     #inicio {
+      display: block;
       text-align: center;
     }
-
+    #inicio .hero {
+      width: 100%;
+      height: 500px;
+      background-image: url('nova_colecao.jpg');
+      background-size: cover;
+      background-position: center;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      animation: fadeIn 2s ease-in;
+    }
     #inicio h1 {
       font-size: 2.5rem;
       margin-bottom: 1rem;
     }
-
-    #inicio p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    .produto {
+    #colecoes {
       text-align: center;
     }
-
-    .produto img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-
-    .detalhes-produto {
-      margin-top: 1rem;
-      text-align: left;
-      background-color: #fff;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-
-    form {
+    .produtos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
       margin-top: 2rem;
-      text-align: center;
     }
-
-    input[type="email"] {
-      padding: 0.5rem;
-      width: 60%;
-      max-width: 300px;
+    .produto-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
     }
-
-    button {
-      padding: 0.5rem 1rem;
-      margin-left: 0.5rem;
+    .produto-card:hover {
+      transform: scale(1.02);
+    }
+    .produto-card img {
+      width: 100%;
+      height: auto;
+    }
+    .produto-card h3 {
+      margin: 1rem;
+    }
+    .produto-card a {
+      display: inline-block;
+      margin-bottom: 1rem;
       background-color: black;
       color: white;
-      border: none;
-      cursor: pointer;
+      padding: 0.5rem 1rem;
+      text-decoration: none;
+      border-radius: 5px;
     }
-
+    .detalhes {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .detalhes img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
     footer {
       text-align: center;
       padding: 1rem;
       background-color: #000;
       color: white;
     }
-
     .social-icons {
       margin-top: 1rem;
     }
-
     .social-icons a {
       margin: 0 10px;
       display: inline-block;
     }
-
     .social-icons img {
       width: 20px;
       height: 20px;
       filter: grayscale(100%);
       transition: filter 0.3s;
     }
-
     .social-icons img:hover {
       filter: grayscale(0%);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
   <header>
-    <a onclick="mostrarSecao('inicio')">
-      <img src="logo_unity_portugal.png" alt="Unity Portugal logo">
-    </a>
+    <a href="#inicio"><img src="logo_unity_portugal.png" alt="Unity Portugal logo"></a>
     <p>Mais do que uma marca de roupa, um modo de vida</p>
   </header>
 
   <nav>
-    <a onclick="mostrarSecao('inicio')">Início</a>
-    <a onclick="mostrarSecao('colecoes')">Coleções</a>
-    <a onclick="mostrarSecao('sobre')">Sobre Nós</a>
-    <a onclick="mostrarSecao('newsletter')">Newsletter</a>
+    <a href="#colecoes">Coleções</a>
+    <a href="#sobre">Sobre Nós</a>
+    <a href="#newsletter">Newsletter</a>
   </nav>
 
-  <!-- Banner só aparece na página Início -->
-  <div id="banner-nova-colecao" class="banner">
-    <img src="nova_colecao.jpg" alt="Nova Coleção Unity Portugal">
-    <div class="banner-texto">
-      <h2>Nova Coleção Verão 2025</h2>
-      <button onclick="mostrarSecao('colecoes')">Ver Coleção</button>
-    </div>
-  </div>
-
   <section id="inicio">
+    <div class="hero"></div>
     <h1>Bem-vindo à Unity Portugal</h1>
-    <p>A marca que representa atitude, união e identidade. Explora a nossa visão e descobre as nossas coleções.</p>
+    <p>Descobre a nossa nova coleção cheia de atitude e estilo.</p>
   </section>
 
-  <section id="colecoes" class="produto">
+  <section id="colecoes">
     <h2>Coleções</h2>
-    <img src="tshirt_unity_portugal.jpg" alt="Nova t-shirt Unity Portugal">
-    <p>Design exclusivo, limitado e com muito estilo. Disponível brevemente.</p>
-    <div class="detalhes-produto">
-      <h3>T-shirt Unity Portugal</h3>
-      <p><strong>Preço:</strong> 25€</p>
-      <p><strong>Tamanhos disponíveis:</strong> S, M, L, XL</p>
-      <p><strong>Composição:</strong> 100% Algodão orgânico</p>
-      <p><strong>Características:</strong> Unissexo, corte regular, serigrafia de alta qualidade.</p>
+    <div class="produtos">
+      <div class="produto-card">
+        <img src="best_kiss.jpg" alt="Best Kiss Collection">
+        <h3>Best Kiss Collection</h3>
+        <a href="#produto1">Ver mais</a>
+      </div>
+      <div class="produto-card">
+        <img src="cupid.jpg" alt="Cupid Collection">
+        <h3>Cupid Collection</h3>
+        <a href="#produto2">Ver mais</a>
+      </div>
+      <div class="produto-card">
+        <img src="10years.jpg" alt="10 Years Exclusive">
+        <h3>10 Years Exclusive</h3>
+        <a href="#produto3">Ver mais</a>
+      </div>
     </div>
+  </section>
+
+  <section id="produto1" class="detalhes">
+    <h2>Best Kiss Collection</h2>
+    <img src="best_kiss.jpg" alt="Best Kiss Collection">
+    <p><strong>Preço:</strong> 25€</p>
+    <p><strong>Tamanhos:</strong> S, M, L, XL</p>
+    <p><strong>Composição:</strong> 100% Algodão Orgânico</p>
+    <p><strong>Características:</strong> Unissexo, corte regular, serigrafia de alta qualidade.</p>
+  </section>
+
+  <section id="produto2" class="detalhes">
+    <h2>Cupid Collection</h2>
+    <img src="cupid.jpg" alt="Cupid Collection">
+    <p><strong>Preço:</strong> 25€</p>
+    <p><strong>Tamanhos:</strong> S, M, L, XL</p>
+    <p><strong>Composição:</strong> 100% Algodão Orgânico</p>
+    <p><strong>Características:</strong> Unissexo, corte regular, toque suave.</p>
+  </section>
+
+  <section id="produto3" class="detalhes">
+    <h2>10 Years Exclusive</h2>
+    <img src="10years.jpg" alt="10 Years Exclusive">
+    <p><strong>Preço:</strong> 30€</p>
+    <p><strong>Tamanhos:</strong> S, M, L, XL</p>
+    <p><strong>Composição:</strong> 100% Algodão Premium</p>
+    <p><strong>Características:</strong> Edição limitada, unissexo, bordado exclusivo.</p>
   </section>
 
   <section id="sobre">
@@ -235,28 +224,5 @@
       </a>
     </div>
   </footer>
-
-  <script>
-    function mostrarSecao(id) {
-      const secoes = document.querySelectorAll('section');
-      secoes.forEach(secao => secao.style.display = 'none');
-
-      const secaoAtiva = document.getElementById(id);
-      if (secaoAtiva) {
-        secaoAtiva.style.display = 'block';
-      }
-
-      // Mostrar banner só na página "inicio"
-      const banner = document.getElementById('banner-nova-colecao');
-      if (id === 'inicio') {
-        banner.style.display = 'block';
-      } else {
-        banner.style.display = 'none';
-      }
-    }
-
-    // Mostrar a secção inicial ao carregar a página
-    window.onload = () => mostrarSecao('inicio');
-  </script>
 </body>
 </html>
