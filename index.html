@@ -1,181 +1,27 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Unity Portugal</title>
+  <title>Unity Portugal — Marca de roupa portuguesa</title>
+  <meta name="description" content="Unity Portugal: a marca que representa atitude, união e identidade. Descobre as coleções Best Kiss, Cupid e 10 Years Exclusive." />
+
+  <!-- Pré-visualização quando o link é partilhado (WhatsApp, Instagram, Facebook) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Unity Portugal" />
+  <meta property="og:description" content="Atitude, união e identidade. Descobre as nossas coleções." />
+  <meta property="og:image" content="https://i.ibb.co/8y41Jmn/Banner-Site.jpg" />
+  <meta property="og:url" content="https://unityportugal.github.io/unityportugal/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="https://i.ibb.co/ksddPCTC/Logo-Site-01.png" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Montserrat', sans-serif;
-      margin: 0;
-      background-color: #f5f5f5;
-      color: #333;
-    }
-    header {
-      background-color: #000;
-      padding: 1rem;
-      text-align: center;
-    }
-    header img {
-      max-height: 60px;
-      cursor: pointer;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem;
-      background-color: #111;
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-    }
-    /* Banner hero-image ajustado para largura total da viewport */
-    .hero-image {
-      width: 100vw;
-      margin-left: calc(50% - 50vw);
-      overflow: hidden;
-    }
-    .hero-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
-    }
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-    section {
-      display: none; /* Esconder todas as secções inicialmente */
-      padding: 2rem;
-      max-width: 1000px;
-      margin: auto;
-      animation: fadeIn 1s ease;
-    }
-    #inicio {
-      text-align: center;
-      padding: 0;
-    }
-    #inicio h1 {
-      font-size: 3rem;
-      margin: 2rem 0;
-      font-weight: 700;
-    }
-    #inicio p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-    }
-    .galeria-inicio {
-      margin-top: 3rem;
-      text-align: center;
-    }
-    .galeria-grid {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-    .foto-cliente {
-      width: 200px;
-      flex-shrink: 0;
-    }
-    .foto-cliente img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .foto-cliente img:hover {
-      transform: scale(1.05);
-    }
-    .produto-card {
-      background-color: white;
-      border-radius: 16px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      overflow: hidden;
-      text-align: center;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-    }
-    .produto-card:hover {
-      transform: scale(1.03);
-    }
-    .produto-card img {
-      width: 100%;
-      height: auto;
-    }
-    .produto-card h3 {
-      margin: 1rem 0 0.5rem;
-      font-size: 1.2rem;
-    }
-    .produto-card p {
-      font-weight: bold;
-      color: #000;
-      margin-bottom: 1rem;
-    }
-    .produtos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    form {
-      margin-top: 2rem;
-      text-align: center;
-    }
-    input[type="email"] {
-      padding: 0.5rem;
-      width: 60%;
-      max-width: 300px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-    }
-    button {
-      padding: 0.5rem 1rem;
-      margin-left: 0.5rem;
-      background-color: black;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    button:hover {
-      background-color: #333;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #000;
-      color: white;
-    }
-    .social-icons {
-      margin-top: 1rem;
-    }
-    .social-icons a {
-      margin: 0 10px;
-      display: inline-block;
-    }
-    .social-icons img {
-      width: 20px;
-      height: 20px;
-      filter: grayscale(100%);
-      transition: filter 0.3s;
-    }
-    .social-icons img:hover {
-      filter: grayscale(0%);
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
   <header>
-    <a href="#inicio"><img src="https://i.ibb.co/ksddPCTC/Logo-Site-01.png" alt="Unity Portugal"></a>
+    <a href="#inicio"><img src="https://i.ibb.co/ksddPCTC/Logo-Site-01.png" alt="Unity Portugal" /></a>
   </header>
   <nav>
     <a href="#inicio">Início</a>
@@ -183,103 +29,98 @@
     <a href="#sobre">Sobre Nós</a>
   </nav>
 
-  <section id="inicio">
-    <div class="hero-image">
-      <a href="https://ibb.co/kL6NpGV" target="_blank" rel="noopener noreferrer">
-        <img src="https://i.ibb.co/8y41Jmn/Banner-Site.jpg" alt="Banner-Site" />
-      </a>
-    </div>
-    <h1>Bem-vindo à Unity Portugal</h1>
-    <p>A marca que representa atitude, união e identidade. Explora a nossa visão e descobre as nossas coleções.</p>
+  <main>
+    <!-- ================= INÍCIO ================= -->
+    <section id="inicio" class="secao">
+      <div class="hero-image">
+        <img src="https://i.ibb.co/8y41Jmn/Banner-Site.jpg" alt="Unity Portugal — nova coleção" />
+      </div>
+      <h1>Bem-vindo à Unity Portugal</h1>
+      <p>A marca que representa atitude, união e identidade. Explora a nossa visão e descobre as nossas coleções.</p>
+      <a href="#colecoes" class="btn">Ver coleções</a>
 
-    <div class="galeria-inicio">
-      <h2>Últimos looks dos nossos clientes</h2>
-      <div class="galeria-grid">
-        <div class="foto-cliente">
-          <img src="cliente1.jpg" alt="Cliente 1" />
-        </div>
-        <div class="foto-cliente">
-          <img src="cliente2.jpg" alt="Cliente 2" />
-        </div>
-        <div class="foto-cliente">
-          <img src="cliente3.jpg" alt="Cliente 3" />
+      <div class="galeria-inicio">
+        <h2>Últimos looks dos nossos clientes</h2>
+        <!-- Para adicionar fotos: carrega cliente2.jpg, cliente3.jpg… para o repositório.
+             As que não existirem ficam escondidas automaticamente. -->
+        <div class="galeria-grid">
+          <div class="foto-cliente"><img src="cliente1.jpg" alt="Cliente com a t-shirt Best Kiss" loading="lazy" data-opcional /></div>
+          <div class="foto-cliente"><img src="cliente2.jpg" alt="Look de cliente Unity Portugal" loading="lazy" data-opcional /></div>
+          <div class="foto-cliente"><img src="cliente3.jpg" alt="Look de cliente Unity Portugal" loading="lazy" data-opcional /></div>
         </div>
       </div>
-    </div>
 
-    <form>
-      <h2>Subscreve a nossa newsletter</h2>
-      <input type="email" placeholder="O teu e-mail" />
-      <button type="submit">Subscrever</button>
-    </form>
-  </section>
+      <form class="newsletter">
+        <h2>Subscreve a nossa newsletter</h2>
+        <div class="newsletter-campos">
+          <input type="email" name="EMAIL" placeholder="O teu e-mail" aria-label="O teu e-mail" required />
+          <button type="submit" class="btn">Subscrever</button>
+        </div>
+        <p class="newsletter-msg" role="status"></p>
+      </form>
+    </section>
 
-  <section id="colecoes">
-    <div class="produtos-grid">
-      <a href="bestkiss.html" class="produto-card">
-        <img src="https://i.ibb.co/fK5dwwT/Foto-Produto.jpg" alt="Best Kiss Collection">
-        <h3>Best Kiss Collection</h3>
-        <p>44,90€</p>
-      </a>
-      <a href="cupid.html" class="produto-card">
-        <img src="https://i.ibb.co/M5Wn7jv2/Foto-Produto.jpg" alt="Cupid Collection">
-        <h3>Cupid Collection</h3>
-        <p>49,90€</p>
-        <p style="color: red; font-weight: bold;">Esgotado</p>
-      </a>
-      <a href="10years.html" class="produto-card">
-        <img src="https://i.ibb.co/M5GQ3RFx/Foto-Produto-01.jpg" alt="10 Years Exclusive">
-        <h3>10 Years Exclusive</h3>
-        <p>50,00€</p>
-      </a>
-    </div>
-  </section>
+    <!-- ================= COLEÇÕES ================= -->
+    <section id="colecoes" class="secao">
+      <h2>Coleções</h2>
+      <div class="produtos-grid">
+        <a href="bestkiss.html" class="produto-card">
+          <img src="https://i.ibb.co/fK5dwwT/Foto-Produto.jpg" alt="Best Kiss Collection" />
+          <h3>Best Kiss Collection</h3>
+          <p class="preco">44,90€</p>
+        </a>
+        <a href="cupid.html" class="produto-card">
+          <span class="etiqueta-esgotado">Esgotado</span>
+          <img src="https://i.ibb.co/M5Wn7jv2/Foto-Produto.jpg" alt="Cupid Collection" />
+          <h3>Cupid Collection</h3>
+          <p class="preco">49,90€</p>
+        </a>
+        <a href="10years.html" class="produto-card">
+          <img src="https://i.ibb.co/M5GQ3RFx/Foto-Produto-01.jpg" alt="10 Years Exclusive" />
+          <h3>10 Years Exclusive</h3>
+          <p class="preco">50,00€</p>
+        </a>
+      </div>
+    </section>
 
-  <section id="sobre">
-    <h2>Sobre a Unity Portugal</h2>
-    <p>
-      A Unity Portugal nasceu da vontade de unir estilo e identidade numa marca que representa a força da comunidade e a criatividade individual.
-      A nossa missão é criar peças únicas, com design exclusivo, conforto e qualidade.
-    </p>
+    <!-- ================= SOBRE ================= -->
+    <section id="sobre" class="secao">
+      <h2>Sobre a Unity Portugal</h2>
+      <p>
+        A Unity Portugal nasceu da vontade de unir estilo e identidade numa marca que representa a força da comunidade e a criatividade individual.
+        A nossa missão é criar peças únicas, com design exclusivo, conforto e qualidade.
+      </p>
 
-    <h3>Contactos</h3>
-    <p>Email: contacto@unityportugal.com</p>
-    <p>Instagram: <a href="https://www.instagram.com/unityportugal" target="_blank">@unityportugal</a></p>
-    <p>Localização: Portugal</p>
+      <h3>Como encomendar</h3>
+      <p>Escolhe a peça e o tamanho na página do produto e envia-nos a encomenda por mensagem. Respondemos com os dados de pagamento e envio.</p>
 
-    <form>
-      <h2>Subscreve a nossa newsletter</h2>
-      <input type="email" placeholder="O teu e-mail" />
-      <button type="submit">Subscrever</button>
-    </form>
-  </section>
+      <h3>Contactos</h3>
+      <p>Email: <a data-email href="mailto:unityoficial@gmail.com">unityoficial@gmail.com</a></p>
+      <p>Instagram: <a href="https://www.instagram.com/unityportugal" target="_blank" rel="noopener">@unityportugal</a></p>
+      <p>TikTok: <a href="https://www.tiktok.com/@unityportugal" target="_blank" rel="noopener">@unityportugal</a></p>
+      <p>Localização: Portugal</p>
+
+      <form class="newsletter">
+        <h2>Subscreve a nossa newsletter</h2>
+        <div class="newsletter-campos">
+          <input type="email" name="EMAIL" placeholder="O teu e-mail" aria-label="O teu e-mail" required />
+          <button type="submit" class="btn">Subscrever</button>
+        </div>
+        <p class="newsletter-msg" role="status"></p>
+      </form>
+    </section>
+  </main>
 
   <footer>
-    <p>&copy; 2025 Unity Portugal. Todos os direitos reservados.</p>
+    <p>&copy; <span data-ano>2026</span> Unity Portugal. Todos os direitos reservados.</p>
     <div class="social-icons">
-      <a href="https://www.instagram.com/unityportugal" target="_blank">
+      <a href="https://www.instagram.com/unityportugal" target="_blank" rel="noopener" aria-label="Instagram">
         <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
       </a>
-      <a href="https://www.tiktok.com/@unityportugal?lang=pt" target="_blank">
+      <a href="https://www.tiktok.com/@unityportugal" target="_blank" rel="noopener" aria-label="TikTok">
         <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" />
       </a>
     </div>
   </footer>
-
-  <script>
-    function mostrarSecao() {
-      const hash = window.location.hash || '#inicio';
-      document.querySelectorAll('section').forEach(sec => {
-        if ('#' + sec.id === hash) {
-          sec.style.display = 'block';
-        } else {
-          sec.style.display = 'none';
-        }
-      });
-    }
-
-    window.addEventListener('hashchange', mostrarSecao);
-    window.addEventListener('load', mostrarSecao);
-  </script>
 </body>
 </html>
