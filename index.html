@@ -15,110 +15,139 @@
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="https://i.ibb.co/ksddPCTC/Logo-Site-01.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
 </head>
-<body>
+<body class="home">
   <header>
     <a href="#inicio"><img src="https://i.ibb.co/ksddPCTC/Logo-Site-01.png" alt="Unity Portugal" /></a>
   </header>
   <nav>
-    <a href="#inicio">Início</a>
     <a href="#colecoes">Coleções</a>
+    <a href="#looks">Looks</a>
     <a href="#sobre">Sobre Nós</a>
+    <a href="#contactos">Contactos</a>
   </nav>
 
   <main>
-    <!-- ================= INÍCIO ================= -->
-    <section id="inicio" class="secao">
-      <div class="hero-image">
-        <img src="https://i.ibb.co/8y41Jmn/Banner-Site.jpg" alt="Unity Portugal — nova coleção" />
-      </div>
-      <h1>Bem-vindo à Unity Portugal</h1>
-      <p>A marca que representa atitude, união e identidade. Explora a nossa visão e descobre as nossas coleções.</p>
+    <!-- ================= BANNER ================= -->
+    <div id="inicio" class="hero-image">
+      <img src="https://i.ibb.co/8y41Jmn/Banner-Site.jpg" alt="Unity Portugal" />
+    </div>
+
+    <section class="intro">
+      <p class="sobretitulo">More than a clothing brand</p>
+      <h1>Unity is a way of life.</h1>
+      <p>A marca que representa atitude, união e identidade. Peças únicas, com design exclusivo, conforto e qualidade.</p>
       <a href="#colecoes" class="btn">Ver coleções</a>
+    </section>
 
-      <div class="galeria-inicio">
-        <h2>Últimos looks dos nossos clientes</h2>
-        <!-- Para adicionar fotos: carrega cliente2.jpg, cliente3.jpg… para o repositório.
-             As que não existirem ficam escondidas automaticamente. -->
-        <div class="galeria-grid">
-          <div class="foto-cliente"><img src="cliente1.jpg" alt="Cliente com a t-shirt Best Kiss" loading="lazy" data-opcional /></div>
-          <div class="foto-cliente"><img src="cliente2.jpg" alt="Look de cliente Unity Portugal" loading="lazy" data-opcional /></div>
-          <div class="foto-cliente"><img src="cliente3.jpg" alt="Look de cliente Unity Portugal" loading="lazy" data-opcional /></div>
+    <!-- ================= ÚLTIMO DROP ================= -->
+    <section class="destaque">
+      <a href="summerclub.html" class="destaque-foto">
+        <img src="summerclub.jpg" alt="Summer Club Collection" />
+      </a>
+      <div class="destaque-texto">
+        <p class="sobretitulo">Último drop</p>
+        <h2>Summer Club Collection</h2>
+        <p class="destaque-frase">“meet me after sunset — made for golden hours”</p>
+        <p>Esgotou. Fica atento ao próximo drop: deixa-nos o teu contacto e és dos primeiros a saber.</p>
+        <div class="destaque-botoes">
+          <a href="summerclub.html" class="btn">Ver a coleção</a>
+          <a href="#newsletter" class="btn btn-claro">Avisa-me do próximo</a>
         </div>
       </div>
-
-      <form class="newsletter">
-        <h2>Subscreve a nossa newsletter</h2>
-        <div class="newsletter-campos">
-          <input type="email" name="EMAIL" placeholder="O teu e-mail" aria-label="O teu e-mail" required />
-          <button type="submit" class="btn">Subscrever</button>
-        </div>
-        <p class="newsletter-msg" role="status"></p>
-      </form>
     </section>
 
     <!-- ================= COLEÇÕES ================= -->
-    <section id="colecoes" class="secao">
-      <h2>Coleções</h2>
+    <section id="colecoes">
+      <div class="titulo-secao">
+        <p class="sobretitulo">Loja</p>
+        <h2>Coleções</h2>
+      </div>
       <div class="produtos-grid">
         <a href="summerclub.html" class="produto-card">
           <span class="etiqueta-esgotado">Esgotado</span>
-          <img src="summerclub.jpg" alt="Summer Club Collection" />
+          <img src="summerclub.jpg" alt="Summer Club Collection" loading="lazy" />
           <h3>Summer Club Collection</h3>
           <p class="preco">Nova coleção</p>
         </a>
         <a href="bestkiss.html" class="produto-card">
-          <img src="https://i.ibb.co/fK5dwwT/Foto-Produto.jpg" alt="Best Kiss Collection" />
+          <img src="https://i.ibb.co/fK5dwwT/Foto-Produto.jpg" alt="Best Kiss Collection" loading="lazy" />
           <h3>Best Kiss Collection</h3>
           <p class="preco">44,90€</p>
         </a>
-        <a href="cupid.html" class="produto-card">
-          <span class="etiqueta-esgotado">Esgotado</span>
-          <img src="https://i.ibb.co/M5Wn7jv2/Foto-Produto.jpg" alt="Cupid Collection" />
-          <h3>Cupid Collection</h3>
-          <p class="preco">49,90€</p>
-        </a>
         <a href="10years.html" class="produto-card">
-          <img src="https://i.ibb.co/M5GQ3RFx/Foto-Produto-01.jpg" alt="10 Years Exclusive" />
+          <img src="https://i.ibb.co/M5GQ3RFx/Foto-Produto-01.jpg" alt="10 Years Exclusive" loading="lazy" />
           <h3>10 Years Exclusive</h3>
           <p class="preco">50,00€</p>
+        </a>
+        <a href="cupid.html" class="produto-card">
+          <span class="etiqueta-esgotado">Esgotado</span>
+          <img src="https://i.ibb.co/M5Wn7jv2/Foto-Produto.jpg" alt="Cupid Collection" loading="lazy" />
+          <h3>Cupid Collection</h3>
+          <p class="preco">49,90€</p>
         </a>
       </div>
     </section>
 
+    <!-- ================= COMO ENCOMENDAR ================= -->
+    <section class="passos">
+      <div class="titulo-secao">
+        <p class="sobretitulo">Simples</p>
+        <h2>Como encomendar</h2>
+      </div>
+      <ol class="passos-lista">
+        <li><span>1</span><h3>Escolhe</h3><p>Abre a peça que queres e escolhe o tamanho.</p></li>
+        <li><span>2</span><h3>Envia mensagem</h3><p>Um clique abre o WhatsApp ou o Instagram com a encomenda já escrita.</p></li>
+        <li><span>3</span><h3>Recebe em casa</h3><p>Respondemos com os dados de pagamento e envio. É só esperar.</p></li>
+      </ol>
+    </section>
+
+    <!-- ================= LOOKS ================= -->
+    <section id="looks" class="galeria-inicio">
+      <div class="titulo-secao">
+        <p class="sobretitulo">#unityportugal</p>
+        <h2>Unity na rua</h2>
+      </div>
+      <!-- Para adicionar mais: carrega a foto para o repositório e copia uma das linhas abaixo. -->
+      <div class="galeria-grid">
+        <div class="foto-cliente"><img src="summerclub-2.jpg" alt="Look Summer Club" loading="lazy" data-opcional /></div>
+        <div class="foto-cliente"><img src="cliente1.jpg" alt="Look Best Kiss ao pôr do sol" loading="lazy" data-opcional /></div>
+        <div class="foto-cliente"><img src="summerclub-3.jpg" alt="Look Summer Club" loading="lazy" data-opcional /></div>
+      </div>
+      <p class="centro"><a href="https://www.instagram.com/unityportugal" target="_blank" rel="noopener" class="btn btn-claro">Ver mais no Instagram</a></p>
+    </section>
+
     <!-- ================= SOBRE ================= -->
-    <section id="sobre" class="secao">
+    <section id="sobre" class="sobre">
+      <p class="sobretitulo">Desde 2013</p>
       <h2>Sobre a Unity Portugal</h2>
       <p>
         A Unity Portugal nasceu da vontade de unir estilo e identidade numa marca que representa a força da comunidade e a criatividade individual.
         A nossa missão é criar peças únicas, com design exclusivo, conforto e qualidade.
       </p>
+    </section>
 
-      <h3>Como encomendar</h3>
-      <p>Escolhe a peça e o tamanho na página do produto e envia-nos a encomenda por mensagem. Respondemos com os dados de pagamento e envio.</p>
-
-      <h3>Contactos</h3>
-      <p>Email: <a data-email href="mailto:unityoficial@gmail.com">unityoficial@gmail.com</a></p>
-      <p>Instagram: <a href="https://www.instagram.com/unityportugal" target="_blank" rel="noopener">@unityportugal</a></p>
-      <p>TikTok: <a href="https://www.tiktok.com/@unityportugal" target="_blank" rel="noopener">@unityportugal</a></p>
-      <p>Localização: Portugal</p>
-
+    <!-- ================= NEWSLETTER ================= -->
+    <div id="newsletter" class="faixa-newsletter">
       <form class="newsletter">
-        <h2>Subscreve a nossa newsletter</h2>
+        <h2>Não percas o próximo drop</h2>
+        <p>As coleções esgotam depressa. Subscreve e recebe os lançamentos antes de todos.</p>
         <div class="newsletter-campos">
           <input type="email" name="EMAIL" placeholder="O teu e-mail" aria-label="O teu e-mail" required />
-          <button type="submit" class="btn">Subscrever</button>
+          <button type="submit" class="btn btn-claro">Subscrever</button>
         </div>
         <p class="newsletter-msg" role="status"></p>
       </form>
-    </section>
+    </div>
   </main>
 
-  <footer>
-    <p>&copy; <span data-ano>2026</span> Unity Portugal. Todos os direitos reservados.</p>
+  <footer id="contactos">
+    <p class="rodape-titulo">Contactos</p>
+    <p><a data-email href="mailto:unityoficial@gmail.com">unityoficial@gmail.com</a></p>
+    <p>Instagram e TikTok: @unityportugal · Portugal</p>
     <div class="social-icons">
       <a href="https://www.instagram.com/unityportugal" target="_blank" rel="noopener" aria-label="Instagram">
         <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
@@ -127,6 +156,7 @@
         <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" />
       </a>
     </div>
+    <p class="copyright">&copy; <span data-ano>2026</span> Unity Portugal. Todos os direitos reservados.</p>
   </footer>
 </body>
 </html>
