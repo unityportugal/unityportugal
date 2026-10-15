@@ -153,7 +153,7 @@ function prepararProduto() {
       try { await navigator.clipboard.writeText(m); copiado = true; } catch (_) {}
       mostrarAviso(copiado
         ? 'Mensagem copiada! Cola-a na conversa do Instagram.'
-        : 'Abre o Instagram e diz-nos o produto e o tamanho.');
+        : 'Abre o Instagram e diz-nos qual é a peça.');
       setTimeout(() => {
         window.open('https://ig.me/m/' + CONFIG.instagram, '_blank', 'noopener');
       }, copiado ? 900 : 0);
