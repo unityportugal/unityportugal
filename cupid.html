@@ -1,77 +1,90 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-PT">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cupid Collection — Unity Portugal</title>
-  <meta name="description" content="Cupid Collection da Unity Portugal por 49,90€. Encomenda por mensagem." />
-  <meta property="og:type" content="product" />
-  <meta property="og:title" content="Cupid Collection — Unity Portugal" />
-  <meta property="og:description" content="49,90€ · Encomenda por mensagem." />
-  <meta property="og:image" content="https://i.ibb.co/M5Wn7jv2/Foto-Produto.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="https://i.ibb.co/ksddPCTC/Logo-Site-01.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cupid — Unity Portugal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+<meta name="description" content="O cupido e “Love” estampados nas costas, com o logótipo Unity à frente.">
+<meta property="og:type" content="product">
+<meta property="og:title" content="Cupid — Unity Portugal">
+<meta property="og:description" content="O cupido e “Love” estampados nas costas, com o logótipo Unity à frente.">
+<meta property="og:image" content="https://unityportugal.github.io/unityportugal/cupid-costas-praia.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
 <body>
-  <header>
-    <a href="index.html#inicio"><img src="https://i.ibb.co/ksddPCTC/Logo-Site-01.png" alt="Unity Portugal" /></a>
-  </header>
-  <nav>
-    <a href="index.html#colecoes" class="ativo">Coleções</a>
-    <a href="index.html#looks">Looks</a>
-    <a href="index.html#sobre">Sobre Nós</a>
-    <a href="index.html#contactos">Contactos</a>
-  </nav>
-
-  <main>
-    <section>
-      <a href="index.html#colecoes" class="voltar">← Voltar às coleções</a>
-
-      <div class="produto-pagina" data-nome="Cupid Collection" data-preco="49,90€" data-esgotado="true">
-        <div class="produto-fotos">
-          <img src="https://i.ibb.co/M5Wn7jv2/Foto-Produto.jpg" alt="Cupid Collection" />
-        </div>
-
-        <div class="produto-info">
-          <h1>Cupid Collection</h1>
-          <p class="preco">49,90€</p>
-          <p class="esgotado-aviso">Esgotado</p>
-
-          <!-- EDITAR: descrição do produto -->
-          <p>Peça da coleção Cupid, com design exclusivo Unity Portugal.</p>
-
-          <!-- EDITAR: detalhes (tira os comentários <!- - e - -> à volta da lista quando tiveres a informação)
-          <ul>
-            <li>Material: …</li>
-            <li>Corte: …</li>
-            <li>Cuidados: lavar do avesso a 30 °C</li>
-          </ul>
-          -->
-
-
-          <div class="botoes-encomenda">
-            <a href="#" class="btn" data-encomendar="instagram">Avisa-me quando voltar (Instagram)</a>
-            <a href="#" class="btn btn-whatsapp" data-encomendar="whatsapp">Avisa-me quando voltar (WhatsApp)</a>
-          </div>
-          <p class="nota">Esta coleção esgotou. Manda-nos mensagem e avisamos-te se houver reposição.</p>
-        </div>
+<p class="faixa">Envios grátis em Portugal continental</p>
+<header>
+  <nav aria-label="Loja"><a href="./#loja">Loja</a><a class="so-pc" href="./#club">The Unity Club</a></nav>
+  <a class="logo" href="./" aria-label="Unity Portugal, início"><svg viewBox="110 138 535 480" aria-hidden="true"><path d="M373 160 L624.5 508.5 L578.5 597.5 L177 597.5 L128 510 Z" fill="none" stroke="#111110" stroke-width="22" stroke-linejoin="miter"/><path d="M191 571 L159 510 L229 412 C290 408 335 398 352 386 C366 376 366 362 356 355 C380 346 430 350 466 368 L505 387 L595 509 L562 571 Z" fill="#111110"/></svg></a>
+  <nav aria-label="Conta"><a class="so-pc" href="#contactos">Contactos</a><button class="abrir-carrinho" type="button" aria-label="Abrir carrinho"><svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path d="M5 8h14l-1 12H6L5 8z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>Carrinho</span><b data-contagem>0</b></button></nav>
+</header>
+<main class="wrap">
+  <nav class="migalhas rotulo" aria-label="Caminho"><a href="./#loja">Loja</a><span>/</span><span>Cupid</span></nav>
+  <div class="produto" data-id="cupid" data-nome="Cupid Collection" data-preco="49,90€" data-img="cupid-costas-praia.jpg" data-esgotado="true">
+    <div class="galeria"><figure><img src="cupid-costas-praia.jpg" alt="Cupid Collection, foto 1 de 3"></figure><figure><img src="cupid-azulejos.jpg" alt="Cupid Collection, foto 2 de 3" loading="lazy"></figure><figure><img src="cupid-frente-praia.jpg" alt="Cupid Collection, foto 3 de 3" loading="lazy"></figure></div>
+    <div class="info">
+      <span class="rotulo" style="color:var(--grey)">T-shirt branca</span>
+      <h1>Cupid Collection</h1>
+      <div class="preco-linha"><span>49,90€</span><span class="estado vermelha">Esgotado</span></div>
+      <p class="descricao">O cupido e “Love” estampados nas costas, com o logótipo Unity à frente.</p>
+      
+      <div class="acoes">
+        <a class="botao escuro" data-avisar href="https://ig.me/m/unityportugal" target="_blank" rel="noopener">Avisa-me quando voltar</a>
       </div>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; <span data-ano>2026</span> Unity Portugal. Todos os direitos reservados.</p>
-    <div class="social-icons">
-      <a href="https://www.instagram.com/unityportugal" target="_blank" rel="noopener" aria-label="Instagram">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
-      </a>
-      <a href="https://www.tiktok.com/@unityportugal" target="_blank" rel="noopener" aria-label="TikTok">
-        <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" />
-      </a>
+      <p class="nota">Esgotou. Manda-nos mensagem no Instagram e avisamos-te se houver reposição.</p>
+      <details><summary class="rotulo">Detalhes</summary><ul><li>Estampado do cupido nas costas</li><li>Logótipo Unity à frente</li><li>Lavar do avesso, a 30 °C</li></ul></details>
+      <details><summary class="rotulo">Envio e pagamento</summary><ul><li>Envio grátis para Portugal continental em encomendas a partir de 30€.</li><li>Para as ilhas ou para fora de Portugal, fala connosco no Instagram.</li><li>Pagamento por MB WAY, transferência ou Revolut, depois de confirmarmos a encomenda.</li></ul></details>
     </div>
-  </footer>
+  </div>
+</main>
+<section class="secao wrap" style="border-top:1px solid var(--hair)">
+  <div class="cabeca"><h2>Também vais gostar</h2></div>
+  <div class="grelha tres"><a class="peca" href="bestkiss.html">
+        <div class="foto"><img src="bestkiss-miami-noite.jpg" alt="Best Kiss Collection" loading="lazy"><img src="bestkiss-produto-45.jpg" alt="" aria-hidden="true" loading="lazy"><span class="comprar">Comprar</span></div>
+        <div class="peca-info"><h3>Best Kiss</h3><p>44,90€</p></div>
+      </a><a class="peca" href="10years.html">
+        <div class="foto"><img src="10years-produto-estendal.jpg" alt="10 Years Exclusive" loading="lazy"><img src="10years-frente-mulher.jpg" alt="" aria-hidden="true" loading="lazy"><span class="comprar">Comprar</span></div>
+        <div class="peca-info"><h3>10 Years Exclusive</h3><p>50,00€</p></div>
+      </a><a class="peca" href="summerclub.html">
+        <div class="foto"><span class="etiqueta vermelha">Esgotado</span><img src="summerclub-frente.jpg" alt="Summer Club Collection · Branca" loading="lazy"><img src="summerclub.jpg" alt="" aria-hidden="true" loading="lazy"><span class="comprar">Avisa-me quando voltar</span></div>
+        <div class="peca-info"><h3>Summer Club Branca</h3><p class="esgotado">Esgotado</p></div>
+      </a></div>
+</section>
+<footer class="wrap" id="contactos">
+  <div class="rodape">
+    <div><a class="logo" href="./" aria-label="Unity Portugal, início"><svg viewBox="110 138 535 480" aria-hidden="true"><path d="M373 160 L624.5 508.5 L578.5 597.5 L177 597.5 L128 510 Z" fill="none" stroke="#111110" stroke-width="22" stroke-linejoin="miter"/><path d="M191 571 L159 510 L229 412 C290 408 335 398 352 386 C366 376 366 362 356 355 C380 346 430 350 466 368 L505 387 L595 509 L562 571 Z" fill="#111110"/></svg></a><p class="lema">More than a clothing brand.<br>Unity is a way of life.</p></div>
+    <div><h4 class="rotulo">Loja</h4><ul><li><a href="bestkiss.html">Best Kiss</a></li><li><a href="10years.html">10 Years Exclusive</a></li><li><a href="summerclub.html">Summer Club Branca</a></li><li><a href="cupid.html">Cupid</a></li><li><a href="summerclubpreta.html">Summer Club Preta</a></li></ul></div>
+    <div><h4 class="rotulo">Ajuda</h4><ul><li><a href="https://www.instagram.com/unityportugal" target="_blank" rel="noopener">Instagram @unityportugal</a></li><li>unityoficial@gmail.com</li><li>Pagamento: MB WAY, transferência ou Revolut</li><li>Envios grátis em Portugal continental (a partir de 30€)</li></ul></div>
+    <div><h4 class="rotulo">Próximo drop</h4><p class="rodape-texto">Os drops esgotam depressa. Segue-nos no Instagram para saberes primeiro.</p><a class="ligacao" href="https://www.instagram.com/unityportugal" target="_blank" rel="noopener">Seguir @unityportugal</a></div>
+  </div>
+  <div class="copy"><span>© 2026 Unity Portugal</span><a href="https://www.tiktok.com/@unityportugal" target="_blank" rel="noopener">TikTok</a></div>
+</footer>
+
+<div class="carrinho-fundo" data-fechar hidden></div>
+<aside class="carrinho" id="carrinho" aria-label="Carrinho" aria-hidden="true">
+  <div class="carrinho-topo"><h2>Carrinho</h2><button type="button" class="fechar" data-fechar aria-label="Fechar carrinho">✕</button></div>
+  <div class="carrinho-envio"><svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path d="M5 8h14l-1 12H6L5 8z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.5"/></svg><span>Envio grátis para Portugal continental em encomendas a partir de 30€.</span></div>
+  <ul class="carrinho-lista" data-lista></ul>
+  <div class="carrinho-vazio" data-vazio>
+    <p>O teu carrinho está vazio.</p>
+    <a class="botao" href="./#loja" data-fechar-link>Ver a loja</a>
+  </div>
+  <div class="carrinho-fim" data-fim hidden>
+    <dl>
+      <div><dt>Subtotal</dt><dd data-subtotal>0,00€</dd></div>
+      <div><dt>Envio</dt><dd data-envio>Grátis · Portugal continental</dd></div>
+      <div class="total"><dt>Total</dt><dd data-total>0,00€</dd></div>
+    </dl>
+    <a class="botao escuro" data-finalizar href="https://ig.me/m/unityportugal" target="_blank" rel="noopener">Encomendar pelo Instagram</a>
+    <p class="carrinho-nota">Copiamos a tua encomenda. Cola-a na conversa do Instagram e respondemos com os dados para pagares por MB WAY, transferência ou Revolut.</p>
+    <label class="copia" data-copia hidden><span>Se a mensagem não foi copiada, copia-a daqui:</span><textarea id="mensagem-encomenda" readonly rows="7"></textarea></label>
+  </div>
+</aside>
+<script src="site.js"></script>
 </body>
 </html>
