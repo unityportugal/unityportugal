@@ -17,6 +17,9 @@
     clearTimeout(aviso.t); aviso.t = setTimeout(() => t.classList.remove('mostrar'), 3800);
   }
 
+  // Estatísticas (Umami): regista ações sem nunca bloquear a loja
+  function registar(nome, dados) { try { if (window.umami) window.umami.track(nome, dados); } catch (_) {} }
+
   // ---------- carrinho ----------
   const painel = document.getElementById('carrinho');
   const fundo = document.querySelector('.carrinho-fundo');
@@ -82,14 +85,16 @@
   }
 
   if (painel) {
-    document.querySelectorAll('.abrir-carrinho').forEach(b => b.addEventListener('click', abrir));
+    document.querySelectorAll('.abrir-carrinho').forEach(b => b.addEventListener('click', () => { registar('Abrir carrinho'); abrir(); }));
     document.querySelectorAll('[data-fechar]').forEach(b => b.addEventListener('click', fechar));
     painel.querySelector('[data-fechar-link]').addEventListener('click', fechar);
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && painel.classList.contains('aberto')) fechar(); });
 
     // Finalizar: copia a encomenda e abre a conversa do Instagram (o link segue normalmente)
     painel.querySelector('[data-finalizar]').addEventListener('click', () => {
-      const texto = mensagem(ler());
+      const itens = ler();
+      registar('Encomendar pelo Instagram', { pecas: itens.reduce((s, i) => s + i.qtd, 0), total: itens.reduce((s, i) => s + i.preco * i.qtd, 0).toFixed(2) });
+      const texto = mensagem(itens);
       const caixa = painel.querySelector('[data-copia]');
       try {
         navigator.clipboard.writeText(texto).then(
@@ -114,10 +119,12 @@
     document.querySelectorAll('[data-adicionar]').forEach(b => b.addEventListener('click', () => {
       const t = produto.querySelector('.tamanhos input:checked');
       if (!t) { erro.textContent = 'Escolhe primeiro o tamanho.'; tamanhos.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
+      registar('Adicionar ao carrinho', { peca: d.nome, tamanho: t.value });
       adicionar({ id: d.id, nome: d.nome, preco: numero(d.preco), img: d.img, tamanho: t.value });
     }));
     const avisar = produto.querySelector('[data-avisar]');
     if (avisar) avisar.addEventListener('click', () => {
+      registar('Avisa-me quando voltar', { peca: d.nome });
       const texto = `Olá Unity Portugal! Quero ser avisado/a quando a ${d.nome} voltar.`;
       try { navigator.clipboard.writeText(texto).then(() => aviso('Mensagem copiada. Cola-a na conversa do Instagram.'), () => {}); } catch (_) {}
     });
