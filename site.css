@@ -65,7 +65,7 @@ header nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
 .cabeca h2 { margin: 0; font-family: var(--display); font-weight: 500; font-size: clamp(1.8rem, 3.6vw, 2.6rem); line-height: 1.1; }
 .cabeca .rotulo { color: var(--grey); }
 .cabeca a.rotulo:hover { color: var(--ink); }
-.grelha { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 30px 14px; }
+.grelha { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px 16px; }
 .grelha.tres { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .peca { display: block; }
 .peca .foto { position: relative; aspect-ratio: 4 / 5; max-width: 100%; overflow: hidden; background: var(--stone); }
@@ -248,3 +248,35 @@ h1.intro-nome { margin: 0; }
 .erro404 h1 { margin: 0; font-family: var(--display); font-style: italic; font-weight: 500; font-size: clamp(2rem, 5vw, 3rem); }
 .erro404 p { margin: 0; color: var(--grey); max-width: 40ch; }
 .erro404 .botao { width: auto; padding-inline: 32px; }
+
+/* ---------- Drop Not Today, Cupid ---------- */
+.faixa a { color: inherit; text-decoration: none; }
+.faixa a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.etiqueta.escura, .estado.escura { background: var(--ink); color: var(--paper); }
+.drop { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); background: var(--stone); }
+.drop-foto { display: block; aspect-ratio: 4 / 5; max-width: 100%; overflow: hidden; }
+.drop-foto img { object-position: center 20%; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+.drop-foto:hover img { transform: scale(1.03); }
+.drop-texto { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 16px; padding: 56px clamp(24px, 6vw, 96px); min-width: 0; }
+.drop-texto .rotulo { color: var(--accent); }
+.drop-texto h2 { margin: 0; font-family: var(--display); font-weight: 500; font-style: italic; font-size: clamp(2.6rem, 6vw, 4.6rem); line-height: .95; }
+.drop-frase { margin: 0; font-family: var(--display); font-style: italic; font-size: clamp(1.15rem, 2.2vw, 1.45rem); color: var(--grey); }
+.drop-desc { margin: 0; max-width: 42ch; color: var(--ink); }
+.drop-preco { display: flex; align-items: center; gap: 16px; margin: 6px 0; padding: 14px 0; border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); width: 100%; max-width: 420px; }
+.drop-preco b { font-size: 1.6rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+.drop-preco span { font-size: .74rem; color: var(--grey); line-height: 1.45; }
+.drop-botoes { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; }
+.drop-botoes .botao { width: auto; padding-inline: 34px; }
+.drop-nota { margin: 4px 0 0; font-size: .75rem; color: var(--grey); }
+.drop-nota a { text-decoration: underline; text-underline-offset: 3px; }
+.galeria-unica { grid-template-columns: 1fr; }
+.galeria-unica figure { aspect-ratio: 2 / 3; }
+.info details a { text-decoration: underline; text-underline-offset: 3px; }
+.legenda-ilustrativa { font-size: .7rem; color: var(--grey); margin: 8px 0 0; }
+.barra-compra a.botao { width: auto; padding: 13px 20px; flex: none; }
+@media (max-width: 860px) {
+  .drop { grid-template-columns: 1fr; }
+  .drop-texto { padding: 36px 20px 44px; }
+  .galeria-unica { display: block; margin: 0; }
+  .galeria-unica figure { aspect-ratio: 4 / 5; }
+}
