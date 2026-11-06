@@ -255,7 +255,7 @@ h1.intro-nome { margin: 0; }
 .etiqueta.escura, .estado.escura { background: var(--ink); color: var(--paper); }
 .drop { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); background: var(--stone); }
 .drop-foto { display: block; aspect-ratio: 4 / 5; max-width: 100%; overflow: hidden; }
-.drop-foto img { object-position: center 20%; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
+.drop-foto img { object-position: center 28%; transition: transform 1.2s cubic-bezier(.2,.7,.2,1); }
 .drop-foto:hover img { transform: scale(1.03); }
 .drop-texto { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 16px; padding: 56px clamp(24px, 6vw, 96px); min-width: 0; }
 .drop-texto .rotulo { color: var(--accent); }
