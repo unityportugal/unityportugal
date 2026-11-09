@@ -72,6 +72,7 @@
 
   function mudar(k, d) {
     const itens = ler();
+    if (d > 0 && itens[k].max && itens[k].qtd >= itens[k].max) { aviso(`Só temos ${itens[k].max} em ${itens[k].tamanho}.`); return; }
     itens[k].qtd += d;
     if (itens[k].qtd <= 0) itens.splice(k, 1);
     guardar(itens); desenhar();
@@ -80,7 +81,8 @@
   function adicionar(item) {
     const itens = ler();
     const igual = itens.find(i => i.id === item.id && i.tamanho === item.tamanho);
-    if (igual) igual.qtd += 1; else itens.push({ ...item, qtd: 1 });
+    if (igual && item.max && igual.qtd >= item.max) { aviso(`Só temos ${item.max} em ${item.tamanho}.`); abrir(); return; }
+    if (igual) { igual.qtd += 1; igual.max = item.max; } else itens.push({ ...item, qtd: 1 });
     guardar(itens); desenhar(); abrir();
   }
 
@@ -120,7 +122,7 @@
       const t = produto.querySelector('.tamanhos input:checked');
       if (!t) { erro.textContent = 'Escolhe primeiro o tamanho.'; tamanhos.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
       registar('Adicionar ao carrinho', { peca: d.nome, tamanho: t.value });
-      adicionar({ id: d.id, nome: d.nome, preco: numero(d.preco), img: d.img, tamanho: t.value });
+      adicionar({ id: d.id, nome: d.nome, preco: numero(d.preco), img: d.img, tamanho: t.value, max: Number(t.dataset.stock) || 0 });
     }));
     const avisar = produto.querySelector('[data-avisar]');
     if (avisar) avisar.addEventListener('click', () => {
