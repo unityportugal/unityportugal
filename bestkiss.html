@@ -131,14 +131,43 @@
     <a class="botao" href="./#loja" data-fechar-link>Ver a loja</a>
   </div>
   <div class="carrinho-fim" data-fim hidden>
+  <div data-resumo>
     <dl>
       <div><dt>Subtotal</dt><dd data-subtotal>0,00€</dd></div>
       <div><dt>Envio</dt><dd data-envio>Grátis · Portugal continental</dd></div>
       <div class="total"><dt>Total</dt><dd data-total>0,00€</dd></div>
     </dl>
-    <a class="botao escuro" data-finalizar href="https://ig.me/m/unityportugal" target="_blank" rel="noopener">Encomendar pelo Instagram</a>
-    <p class="carrinho-nota">Copiamos a tua encomenda. Cola-a na conversa do Instagram e respondemos com os dados para pagares por MB WAY, transferência ou Revolut.</p>
-    <label class="copia" data-copia hidden><span>Se a mensagem não foi copiada, copia-a daqui:</span><textarea id="mensagem-encomenda" readonly rows="7"></textarea></label>
+    <button class="botao escuro" type="button" data-checkout>Finalizar encomenda</button>
+    <p class="carrinho-nota">Pagamento por MB WAY, transferência ou Revolut. Envio grátis para Portugal continental.</p>
+  </div>
+  <form class="checkout" data-dados hidden novalidate>
+    <button type="button" class="voltar-carrinho" data-voltar>← Voltar ao carrinho</button>
+    <h3>Os teus dados</h3>
+    <label>Nome<input name="nome" autocomplete="name" required></label>
+    <label>Email<input name="email" type="email" autocomplete="email" inputmode="email" required></label>
+    <label>Telefone<input name="telefone" type="tel" autocomplete="tel" inputmode="tel" required></label>
+    <label>Morada<input name="morada" autocomplete="street-address" required></label>
+    <div class="dupla">
+      <label>Código postal<input name="cp" autocomplete="postal-code" inputmode="numeric" placeholder="0000-000" required></label>
+      <label>Localidade<input name="localidade" autocomplete="address-level2" required></label>
+    </div>
+    <fieldset class="pagamento">
+      <legend>Forma de pagamento</legend>
+      <label><input type="radio" name="pagamento" value="MB WAY" required><span>MB WAY</span></label>
+      <label><input type="radio" name="pagamento" value="Transferência"><span>Transferência</span></label>
+      <label><input type="radio" name="pagamento" value="Revolut"><span>Revolut</span></label>
+    </fieldset>
+    <p class="erro" data-erro-checkout role="alert"></p>
+    <button class="botao escuro" type="submit" data-confirmar>Confirmar encomenda · <span data-total-botao>0,00€</span></button>
+    <p class="carrinho-nota">Depois de confirmares, enviamos-te por email o resumo e os dados para pagamento.</p>
+  </form>
+  </div>
+  <div class="carrinho-ok" data-ok hidden>
+    <span class="rotulo">Encomenda recebida</span>
+    <h3>Obrigado, <span data-ok-nome></span>!</h3>
+    <p>A tua encomenda de <b data-ok-total></b> ficou registada. Vamos enviar-te por email o resumo e os dados para pagares por <span data-ok-pagamento></span>.</p>
+    <p class="carrinho-nota">Alguma dúvida? Fala connosco no <a href="https://www.instagram.com/unityportugal" target="_blank" rel="noopener">Instagram</a>.</p>
+    <a class="botao" href="./#loja" data-fechar-link>Continuar a ver a loja</a>
   </div>
 </aside>
 <script src="site.js"></script>
